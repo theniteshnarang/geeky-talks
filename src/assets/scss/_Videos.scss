@@ -1,0 +1,106 @@
+.Videos {
+    flex-wrap: wrap;
+}
+
+.Video {
+    &-name {
+        font-size: 1rem;
+    }
+    &-link {
+        color: var(--dark-color);
+        text-decoration: none;
+    }
+    &-card {
+        max-width: 18vw;
+        margin: 0.5rem;
+        @include bigtab {
+            max-width: 25vw;
+        }
+        @include tablet {
+            max-width: 30vw;
+        }
+        @include phone {
+            max-width: 50vw;
+        }
+        &__header {
+            min-height: 32vh;
+            border-bottom: 1px solid var(--gray-300);
+        }
+        &__content {
+            margin: 0.5rem 0;
+            font-size: 0.8rem;
+            min-height: 18vh;
+        }
+    }
+}
+
+// YouTube Single Page starts
+.VideoSingle {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    font-weight: 300;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    transform: translateY(-0.1%);
+    grid-template-areas: "card secondary" "info secondary";
+}
+
+.YouTubeCard {
+    color: var(--gray-200);
+    grid-area: card;
+    border-bottom: 0.5px solid var(--gray-500);
+    height: 85vh;
+    &-title {
+        font-size: 1.3rem;
+        width: 94%;
+    }
+    &-cta {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 7vw;
+    }
+    &-content {
+        width: 94%;
+        &__right {
+            width: 18vw;
+        }
+    }
+}
+
+.YouTubeInfo {
+    grid-area: info;
+    height: 50vh;
+    &-image {
+        width: 4vw;
+        height: 4vw;
+        margin: 0.5rem;
+    }
+    &-desc {
+        height: 40vh;
+    }
+    // &-content {
+    //     // height: 10vh;
+    // }
+}
+
+.YouTubeSecondary {
+    grid-area: secondary;
+    &-card {
+        margin-bottom: 0.5rem;
+        background-color: var(--dark-color);
+        max-width: 98%;
+        font-size: 0.8rem;
+        &-header {
+            max-width: 40%;
+        }
+        &-content {
+            max-width: 57%;
+            &-title {
+                font-size: 0.9rem;
+                color: var(--gray-200);
+            }
+        }
+    }
+}

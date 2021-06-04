@@ -1,0 +1,94 @@
+.btn {
+    // &-secondary {
+    //     &:hover {
+    //         border: none;
+    //         background-color: #3e395e;
+    //     }
+    // }
+    // &-primary {
+    //     border: 0.5px solid var(--primary-color);
+    //     &:hover {
+    //         border: none;
+    //         background-color: var(--secondary-color);
+    //         color: var(--primary-color);
+    //     }
+    // }
+}
+
+.Guide {
+    &-list {
+        margin-left: 1rem;
+    }
+    &-item {
+        &-name {
+            margin-left: 0.7rem;
+        }
+    }
+    &-icon {
+        margin-right: 1rem;
+    }
+}
+
+.header {
+    border-bottom: 0;
+    &__wrapper {
+        max-width: 90vw;
+    }
+    &__nav {
+        width: 70vw;
+    }
+    &__brand {
+        &__title {
+            margin-left: 0;
+        }
+    }
+    &__list {
+        min-width: 10vw;
+        &__item {
+            border: none;
+            &:focus {
+                border: none;
+                padding: 0;
+            }
+        }
+    }
+}
+
+span {
+    font-weight: normal;
+}
+
+.list {
+    &-stacked {
+        overflow: none;
+        border: none;
+        max-height: 50vh;
+    }
+    &__item {
+        text-align: left;
+        padding-left: 2rem;
+        &:hover {
+            background-color: var(--dark-color);
+            color: var(--secondary-color);
+        }
+    }
+    &-item-name {
+        align-self: flex-end;
+    }
+}
+
+.react-icon {
+    font-size: 1.5rem;
+    // margin-right: 1rem;
+}
+
+.search-bar {
+    min-width: 45vw;
+    &__input {
+        color: var(--primary-color);
+    }
+}
+
+.flex--justify_evenly {
+    justify-content: space-evenly;
+}

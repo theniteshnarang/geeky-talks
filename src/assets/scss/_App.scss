@@ -1,0 +1,23 @@
+.App {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-areas: "gruide main";
+}
+
+.Guide {
+    position: fixed;
+    left: 0;
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    height: 100%;
+    width: 16.5vw;
+    grid-area: guide;
+    transform: translateY(10%);
+}
+
+.Main {
+    grid-area: main;
+    text-align: left;
+    transform: translateY(5%);
+}

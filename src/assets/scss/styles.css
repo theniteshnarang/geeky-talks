@@ -1,0 +1,255 @@
+.Guide-list {
+  margin-left: 1rem;
+}
+
+.Guide-item-name {
+  margin-left: 0.7rem;
+}
+
+.Guide-icon {
+  margin-right: 1rem;
+}
+
+.header {
+  border-bottom: 0;
+}
+
+.header__wrapper {
+  max-width: 90vw;
+}
+
+.header__nav {
+  width: 70vw;
+}
+
+.header__brand__title {
+  margin-left: 0;
+}
+
+.header__list {
+  min-width: 10vw;
+}
+
+.header__list__item {
+  border: none;
+}
+
+.header__list__item:focus {
+  border: none;
+  padding: 0;
+}
+
+span {
+  font-weight: normal;
+}
+
+.list-stacked {
+  overflow: none;
+  border: none;
+  max-height: 50vh;
+}
+
+.list__item {
+  text-align: left;
+  padding-left: 2rem;
+}
+
+.list__item:hover {
+  background-color: var(--dark-color);
+  color: var(--secondary-color);
+}
+
+.list-item-name {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+.react-icon {
+  font-size: 1.5rem;
+}
+
+.search-bar {
+  min-width: 45vw;
+}
+
+.search-bar__input {
+  color: var(--primary-color);
+}
+
+.flex--justify_evenly {
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.Videos {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.Video-name {
+  font-size: 1rem;
+}
+
+.Video-link {
+  color: var(--dark-color);
+  text-decoration: none;
+}
+
+.Video-card {
+  max-width: 18vw;
+  margin: 0.5rem;
+}
+
+@media only screen and (max-width: 1250px) {
+  .Video-card {
+    max-width: 25vw;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .Video-card {
+    max-width: 30vw;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .Video-card {
+    max-width: 50vw;
+  }
+}
+
+.Video-card__header {
+  min-height: 32vh;
+  border-bottom: 1px solid var(--gray-300);
+}
+
+.Video-card__content {
+  margin: 0.5rem 0;
+  font-size: 0.8rem;
+  min-height: 18vh;
+}
+
+.VideoSingle {
+  background-color: var(--dark-color);
+  color: var(--light-color);
+  font-weight: 300;
+  height: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 1fr;
+      grid-template-columns: 2fr 1fr;
+  -webkit-transform: translateY(-0.1%);
+          transform: translateY(-0.1%);
+      grid-template-areas: "card secondary" "info secondary";
+}
+
+.YouTubeCard {
+  color: var(--gray-200);
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: card;
+  border-bottom: 0.5px solid var(--gray-500);
+  height: 85vh;
+}
+
+.YouTubeCard-title {
+  font-size: 1.3rem;
+  width: 94%;
+}
+
+.YouTubeCard-cta {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  width: 7vw;
+}
+
+.YouTubeCard-content {
+  width: 94%;
+}
+
+.YouTubeCard-content__right {
+  width: 18vw;
+}
+
+.YouTubeInfo {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: info;
+  height: 50vh;
+}
+
+.YouTubeInfo-image {
+  width: 4vw;
+  height: 4vw;
+  margin: 0.5rem;
+}
+
+.YouTubeInfo-desc {
+  height: 40vh;
+}
+
+.YouTubeSecondary {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 2;
+  grid-area: secondary;
+}
+
+.YouTubeSecondary-card {
+  margin-bottom: 0.5rem;
+  background-color: var(--dark-color);
+  max-width: 98%;
+  font-size: 0.8rem;
+}
+
+.YouTubeSecondary-card-header {
+  max-width: 40%;
+}
+
+.YouTubeSecondary-card-content {
+  max-width: 57%;
+}
+
+.YouTubeSecondary-card-content-title {
+  font-size: 0.9rem;
+  color: var(--gray-200);
+}
+
+.App {
+  height: 100vh;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 5fr;
+      grid-template-columns: 1fr 5fr;
+      grid-template-areas: "gruide main";
+}
+
+.Guide {
+  position: fixed;
+  left: 0;
+  background-color: var(--dark-color);
+  color: var(--light-color);
+  height: 100%;
+  width: 16.5vw;
+  grid-area: guide;
+  -webkit-transform: translateY(10%);
+          transform: translateY(10%);
+}
+
+.Main {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: main;
+  text-align: left;
+  -webkit-transform: translateY(5%);
+          transform: translateY(5%);
+}
+/*# sourceMappingURL=styles.css.map */

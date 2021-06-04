@@ -1,0 +1,35 @@
+// sizes
+$bigtab: 1250px;
+$tablet: 750px;
+$phone: 500px;
+$smphone: 390px;
+$vsmphone: 345px;
+@mixin bigtab {
+    @media only screen and (max-width: $bigtab) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media only screen and (max-width: $tablet) {
+        @content;
+    }
+}
+
+@mixin phone {
+    @media only screen and (max-width: $phone) {
+        @content;
+    }
+}
+
+@mixin smphone {
+    @media only screen and (max-width: $smphone) {
+        @content;
+    }
+}
+
+@mixin vsmphone {
+    @media only screen and (max-width: $vsmphone) {
+        @content;
+    }
+}
