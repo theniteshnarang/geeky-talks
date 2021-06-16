@@ -1,34 +1,19 @@
-.btn {
-    // &-secondary {
-    //     &:hover {
-    //         border: none;
-    //         background-color: #3e395e;
-    //     }
-    // }
-    // &-primary {
-    //     border: 0.5px solid var(--primary-color);
-    //     &:hover {
-    //         border: none;
-    //         background-color: var(--secondary-color);
-    //         color: var(--primary-color);
-    //     }
-    // }
-}
-
-.Guide {
-    &-list {
-        margin-left: 1rem;
-    }
-    &-item {
-        &-name {
-            margin-left: 0.7rem;
-        }
-    }
-    &-icon {
-        margin-right: 1rem;
-    }
-}
-
+// .btn {
+//     &-secondary {
+//         &:hover {
+//             border: none;
+//             background-color: #3e395e;
+//         }
+//     }
+//     &-primary {
+//         border: 0.5px solid var(--primary-color);
+//         &:hover {
+//             border: none;
+//             background-color: var(--secondary-color);
+//             color: var(--primary-color);
+//         }
+//     }
+// }
 .header {
     border-bottom: 0;
     &__wrapper {
@@ -79,13 +64,26 @@ span {
 
 .react-icon {
     font-size: 1.5rem;
-    // margin-right: 1rem;
 }
 
 .search-bar {
     min-width: 45vw;
     &__input {
         color: var(--primary-color);
+    }
+}
+
+.active {
+    display: block;
+    @include tablet {
+        display: none;
+    }
+}
+
+.hide {
+    display: none;
+    @include tablet {
+        display: block;
     }
 }
 

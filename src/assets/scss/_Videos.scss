@@ -1,5 +1,11 @@
 .Videos {
     flex-wrap: wrap;
+    @include tablet {
+        transform: translateY(-2%);
+    }
+    @include phone {
+        transform: translateY(-3.7%);
+    }
 }
 
 .Video {
@@ -17,10 +23,10 @@
             max-width: 25vw;
         }
         @include tablet {
-            max-width: 30vw;
+            max-width: 45vw;
         }
         @include phone {
-            max-width: 50vw;
+            max-width: 75vw;
         }
         &__header {
             min-height: 32vh;
@@ -41,48 +47,105 @@
     font-weight: 300;
     height: 100%;
     display: grid;
+    font-size: 1.2rem;
     grid-template-columns: 2fr 1fr;
     transform: translateY(-0.1%);
     grid-template-areas: "card secondary" "info secondary";
+    @include tablet {
+        grid-template-areas: "card card""info info""secondary secondary";
+        transform: translateY(-2.5%);
+        height: 103%;
+    }
+    @include phone {
+        font-size: 1rem;
+    }
+    @include smphone {
+        font-size: 0.8rem;
+    }
 }
 
 .YouTubeCard {
     color: var(--gray-200);
     grid-area: card;
     border-bottom: 0.5px solid var(--gray-500);
-    height: 85vh;
+    height: 75vh;
+    &-frame {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transform: translateY(2.5%);
+        @include phone {
+            transform: translateY(5%);
+        }
+    }
+    &-player {
+        position: absolute;
+        left: 3%;
+        top: 3%;
+        right: 3%;
+    }
+    @include phone {
+        height: 55vh;
+    }
+    @include smphone {
+        height: 47vh;
+    }
+    &-body {
+        margin: 0.7rem 0.5rem 0 0.5rem;
+        width: 98%;
+        height: 17vh;
+    }
     &-title {
-        font-size: 1.3rem;
-        width: 94%;
+        width: 100%;
+        margin-bottom: 0.7rem;
     }
     &-cta {
         display: flex;
         align-items: center;
-        justify-content: space-evenly;
-        width: 7vw;
+        @include tablet {
+            font-size: 0.9rem;
+        }
+        @include phone {
+            font-size: 0.8rem;
+        }
     }
     &-content {
-        width: 94%;
+        width: 100%;
         &__right {
-            width: 18vw;
+            width: 20vw;
+            @include tablet {
+                width: 35vw;
+            }
+            @include phone {
+                width: 45vw;
+            }
         }
     }
 }
 
 .YouTubeInfo {
     grid-area: info;
-    height: 50vh;
     &-image {
-        width: 4vw;
-        height: 4vw;
+        width: 4rem;
+        height: 4rem;
         margin: 0.5rem;
+        @include phone {
+            width: 3.5rem;
+            height: 3.5rem;
+        }
+        @include smphone {
+            width: 3rem;
+            height: 3rem;
+        }
     }
     &-desc {
-        height: 40vh;
+        font-size: 1rem;
+        margin-top: 0.5rem;
+        color: var(--gray-300);
+        @include tablet {
+            font-size: 0.9rem;
+        }
     }
-    // &-content {
-    //     // height: 10vh;
-    // }
 }
 
 .YouTubeSecondary {
@@ -92,6 +155,9 @@
         background-color: var(--dark-color);
         max-width: 98%;
         font-size: 0.8rem;
+        @include tablet {
+            max-width: 90%;
+        }
         &-header {
             max-width: 40%;
         }

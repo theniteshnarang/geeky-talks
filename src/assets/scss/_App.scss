@@ -1,8 +1,11 @@
 .App {
-    height: 100vh;
+    height: inherit;
     display: grid;
     grid-template-columns: 1fr 5fr;
-    grid-template-areas: "gruide main";
+    grid-template-areas: "guide main";
+    @include tablet {
+        grid-template-areas: "main main";
+    }
 }
 
 .Guide {
@@ -14,6 +17,48 @@
     width: 16.5vw;
     grid-area: guide;
     transform: translateY(10%);
+    z-index: 1;
+    @include tablet {
+        width: 40vw;
+    }
+    @include phone {
+        width: 50vw;
+    }
+    @include smphone {
+        width: 60vw;
+    }
+    &-list {
+        margin-left: 1rem;
+    }
+    &-item {
+        color: var(--light-color);
+        &:hover {
+            color: var(--secondary-color);
+        }
+        &-name {
+            color: var(--light-color);
+            margin-left: 0.7rem;
+            &:hover {
+                color: var(--secondary-color);
+            }
+        }
+    }
+    &-icon {
+        position: fixed;
+        bottom: 1rem;
+        left: 1rem;
+        font-size: 2.5rem;
+        display: none;
+        cursor: pointer;
+        margin-right: 1rem;
+        @include tablet {
+            display: block;
+            z-index: 1;
+        }
+        &:hover {
+            color: var(--secondary-color);
+        }
+    }
 }
 
 .Main {
