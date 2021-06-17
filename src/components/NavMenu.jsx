@@ -6,11 +6,11 @@ export const NavMenu = () => {
         <>
             <div className="header">
                 <div className="header__wrapper flex flex--justify_between flex--align_center">
-                    <Link to="/" className="header__brand flex flex--align_center">
+                    <Link to="/" className="header__brand">
                         <span className="header__brand__title ">GEEKY <strong className="color-secondary">Talks</strong> </span>
                     </Link>
                     <nav className="header__nav flex flex--justify_between flex--align_center">
-                        <div className="search-bar pos-rel">
+                        <div className="search-bar pos-rel active">
                             <input className="search-bar__input" type="text" name="search"
                                 // onChange = {(e) => storeDispatch(searchStore(e.target.value))}
                                 placeholder="Search for videos" />

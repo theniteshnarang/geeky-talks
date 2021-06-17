@@ -11,17 +11,23 @@ export const Guide = () => {
         <>
             <div className={`Guide ${guide ? 'active' : 'hide'}`}>
                 <ul className="Guide-list list list-stacked flex flex--column">
-                    <li className="list__item"><Link className="Guide-item flex flex--align_center" to="/"><AiOutlineHome className="react-icon"/><span className="Guide-item-name list-item-name">Home</span></Link></li>
-                    <li className="list__item"><Link className="Guide-item flex flex--align_center" to="/"><AiOutlineFire className="react-icon"/><span className="Guide-item-name list-item-name">Trending</span></Link></li>
-                    <li className="list__item"><Link className="Guide-item flex flex--align_center" to="/"><AiOutlineSave className="react-icon"/><span className="Guide-item-name list-item-name">Saved</span></Link></li>
-                    <li className="list__item"><Link className="Guide-item flex flex--align_center" to="/"><AiOutlineLike className="react-icon"/><span className="Guide-item-name list-item-name">Liked</span></Link></li>
-                    <li className="list__item"><Link className="Guide-item flex flex--align_center" to="/"><MdPlaylistAddCheck className="react-icon"/><span className="Guide-item-name list-item-name">Playlist</span></Link></li>
+                    <li className="search-bar pos-rel hide">
+                        <input className="search-bar__input" type="text" name="search"
+                            // onChange = {(e) => storeDispatch(searchStore(e.target.value))}
+                            placeholder="Search for videos" />
+                        <i className="search-bar__icon bi bi-search"></i>
+                    </li>
+                    <li className="list__item"><Link className="Guide-item flex flex--align_center" to="/"><AiOutlineHome className="react-icon" /><span className="Guide-item-name list-item-name">Home</span></Link></li>
+                    <li className="list__item"><Link className="Guide-item flex flex--align_center" to="/"><AiOutlineFire className="react-icon" /><span className="Guide-item-name list-item-name">Trending</span></Link></li>
+                    <li className="list__item"><Link className="Guide-item flex flex--align_center" to="/"><AiOutlineSave className="react-icon" /><span className="Guide-item-name list-item-name">Saved</span></Link></li>
+                    <li className="list__item"><Link className="Guide-item flex flex--align_center" to="/"><AiOutlineLike className="react-icon" /><span className="Guide-item-name list-item-name">Liked</span></Link></li>
+                    <li className="list__item"><Link className="Guide-item flex flex--align_center" to="/"><MdPlaylistAddCheck className="react-icon" /><span className="Guide-item-name list-item-name">Playlist</span></Link></li>
                 </ul>
             </div>
             <button onClick={toggleDisplay}>
                 {
-                    guide ? <AiOutlineMenuUnfold className="Guide-icon react-icon" /> :
-                        <AiOutlineClose className="Guide-icon react-icon color-light" />
+                    guide ? <AiOutlineMenuUnfold className="Guide-icon" /> :
+                        <AiOutlineClose className="Guide-icon" />
                 }
 
             </button>

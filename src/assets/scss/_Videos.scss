@@ -19,6 +19,10 @@
     &-card {
         max-width: 18vw;
         margin: 0.5rem;
+        background-color: var(--gray-300);
+        &:hover {
+            background-color: var(--light-color);
+        }
         @include bigtab {
             max-width: 25vw;
         }
@@ -42,12 +46,11 @@
 
 // YouTube Single Page starts
 .VideoSingle {
-    background-color: var(--dark-color);
-    color: var(--light-color);
     font-weight: 300;
     height: 100%;
     display: grid;
     font-size: 1.2rem;
+    color: var(--light-color);
     grid-template-columns: 2fr 1fr;
     transform: translateY(-0.1%);
     grid-template-areas: "card secondary" "info secondary";
@@ -109,6 +112,15 @@
             font-size: 0.8rem;
         }
     }
+    &-icon {
+        font-size: 1.5rem;
+        @include phone {
+            font-size: 1.3rem;
+        }
+        @include smphone {
+            font-size: 1.1rem;
+        }
+    }
     &-content {
         width: 100%;
         &__right {
@@ -150,13 +162,23 @@
 
 .YouTubeSecondary {
     grid-area: secondary;
+    transform: translateY(1%);
+    @include tablet {
+        transform: translateY(0);
+    }
     &-card {
         margin-bottom: 0.5rem;
         background-color: var(--dark-color);
-        max-width: 98%;
-        font-size: 0.8rem;
-        @include tablet {
-            max-width: 90%;
+        color: var(--gray-300);
+        max-width: 100%;
+        font-size: 1rem;
+        cursor: pointer;
+        &:hover {
+            background-color: var(--gray-500);
+            color: var(--light-color)
+        }
+        @include phone {
+            font-size: 0.8rem;
         }
         &-header {
             max-width: 40%;

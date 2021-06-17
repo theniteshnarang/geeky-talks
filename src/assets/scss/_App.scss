@@ -8,61 +8,92 @@
     }
 }
 
-.Guide {
-    position: fixed;
-    left: 0;
-    background-color: var(--dark-color);
-    color: var(--light-color);
-    height: 100%;
-    width: 16.5vw;
-    grid-area: guide;
-    transform: translateY(10%);
-    z-index: 1;
-    @include tablet {
-        width: 40vw;
-    }
-    @include phone {
-        width: 50vw;
-    }
-    @include smphone {
-        width: 60vw;
-    }
-    &-list {
-        margin-left: 1rem;
-    }
-    &-item {
-        color: var(--light-color);
-        &:hover {
-            color: var(--secondary-color);
-        }
-        &-name {
-            color: var(--light-color);
-            margin-left: 0.7rem;
-            &:hover {
-                color: var(--secondary-color);
-            }
-        }
-    }
-    &-icon {
-        position: fixed;
-        bottom: 1rem;
-        left: 1rem;
-        font-size: 2.5rem;
-        display: none;
-        cursor: pointer;
-        margin-right: 1rem;
-        @include tablet {
-            display: block;
-            z-index: 1;
-        }
-        &:hover {
-            color: var(--secondary-color);
-        }
-    }
-}
-
 .Main {
     grid-area: main;
     text-align: left;
     transform: translateY(5%);
+}
+
+body {
+    background-color: var(--dark-color);
+}
+
+// .btn {
+//     &-secondary {
+//         &:hover {
+//             border: none;
+//             background-color: #3e395e;
+//         }
+//     }
+//     &-primary {
+//         border: 0.5px solid var(--primary-color);
+//         &:hover {
+//             border: none;
+//             background-color: var(--secondary-color);
+//             color: var(--primary-color);
+//         }
+//     }
+// }
+span {
+    font-weight: normal;
+}
+
+.list {
+    &-stacked {
+        overflow: none;
+        border: none;
+        max-height: 50vh;
+        @include tablet {
+            max-height: 60vh;
+        }
+    }
+    &__item {
+        text-align: left;
+        padding-left: 2rem;
+        &:hover {
+            background-color: var(--dark-color);
+            color: var(--secondary-color);
+        }
+    }
+    &-item-name {
+        align-self: flex-end;
+    }
+}
+
+.react-icon {
+    font-size: 1.5rem;
+}
+
+.search-bar {
+    min-width: 45vw;
+    @include tablet {
+        min-width: 41.8vw;
+    }
+    @include phone {
+        min-width: 46vw;
+    }
+    @include smphone {
+        min-width: 57.5vw;
+    }
+    &__input {
+        color: var(--primary-color);
+    }
+}
+
+.active {
+    display: block;
+    @include tablet {
+        display: none;
+    }
+}
+
+.hide {
+    display: none;
+    @include tablet {
+        display: block;
+    }
+}
+
+.flex--justify_evenly {
+    justify-content: space-evenly;
 }

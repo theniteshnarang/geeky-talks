@@ -1,92 +1,53 @@
-// .btn {
-//     &-secondary {
-//         &:hover {
-//             border: none;
-//             background-color: #3e395e;
-//         }
-//     }
-//     &-primary {
-//         border: 0.5px solid var(--primary-color);
-//         &:hover {
-//             border: none;
-//             background-color: var(--secondary-color);
-//             color: var(--primary-color);
-//         }
-//     }
-// }
-.header {
-    border-bottom: 0;
-    &__wrapper {
-        max-width: 90vw;
+.Guide {
+    position: fixed;
+    left: 0;
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    height: 100%;
+    width: 16.5vw;
+    grid-area: guide;
+    transform: translateY(10%);
+    z-index: 1;
+    @include tablet {
+        width: 45vw;
     }
-    &__nav {
-        width: 70vw;
+    @include phone {
+        width: 50vw;
     }
-    &__brand {
-        &__title {
-            margin-left: 0;
+    @include smphone {
+        width: 63vw;
+    }
+    &-list {
+        margin-left: 1rem;
+    }
+    &-item {
+        color: var(--light-color);
+        &:hover {
+            color: var(--secondary-color);
         }
-    }
-    &__list {
-        min-width: 10vw;
-        &__item {
-            border: none;
-            &:focus {
-                border: none;
-                padding: 0;
+        &-name {
+            color: var(--light-color);
+            margin-left: 0.7rem;
+            &:hover {
+                color: var(--secondary-color);
             }
         }
     }
-}
-
-span {
-    font-weight: normal;
-}
-
-.list {
-    &-stacked {
-        overflow: none;
-        border: none;
-        max-height: 50vh;
-    }
-    &__item {
-        text-align: left;
-        padding-left: 2rem;
+    &-icon {
+        position: fixed;
+        bottom: 1rem;
+        left: 1rem;
+        font-size: 2rem;
+        display: none;
+        cursor: pointer;
+        margin-right: 1rem;
+        color: var(--light-color);
+        @include tablet {
+            display: block;
+            z-index: 1;
+        }
         &:hover {
-            background-color: var(--dark-color);
             color: var(--secondary-color);
         }
     }
-    &-item-name {
-        align-self: flex-end;
-    }
-}
-
-.react-icon {
-    font-size: 1.5rem;
-}
-
-.search-bar {
-    min-width: 45vw;
-    &__input {
-        color: var(--primary-color);
-    }
-}
-
-.active {
-    display: block;
-    @include tablet {
-        display: none;
-    }
-}
-
-.hide {
-    display: none;
-    @include tablet {
-        display: block;
-    }
-}
-
-.flex--justify_evenly {
-    justify-content: space-evenly;
 }
