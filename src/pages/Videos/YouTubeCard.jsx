@@ -5,7 +5,7 @@ import { shortNumber } from '../../utils';
 
 export const YouTubeCard = ({ id, video }) => {
     const { stats, uploadOn, name} = video;
-    const {views, like, disklike} = stats
+    const {views, like, dislike} = stats
     const options = {
         height: '95%',
         width: '95%',
@@ -36,7 +36,7 @@ export const YouTubeCard = ({ id, video }) => {
                         </span>
                         <span className="YouTubeCard-cta">
                             <AiFillDislike className="YouTubeCard-icon" />
-                            <span>{shortNumber(disklike)}</span>
+                            <span>{shortNumber(dislike)}</span>
                         </span>
                         <span className="YouTubeCard-cta">
                             <MdPlaylistAdd className="YouTubeCard-icon" />

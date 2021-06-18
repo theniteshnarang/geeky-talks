@@ -10,7 +10,7 @@ export const YouTubeSecondaryCard = ({ video }) => {
                 <img className="card__image" src={thumbnailImage} alt="card" />
             </div>
             <div className="YouTubeSecondary-card-content card__content flex flex--column flex--justify_around">
-                <h3 className="YouTubeSecondary-card-content-title">{name.split('-')[0]}</h3>
+                <h3 className="YouTubeSecondary-card-name">{name}</h3>
                 <p>{creator.name}</p>
                 <p>{shortNumber(stats.views)} views</p>
             </div>
@@ -22,7 +22,7 @@ export const YouTubeSecondary = ({ videos }) => {
     return (
         <div className="YouTubeSecondary">
             <ul className="flex flex--column flex--align_center">
-                {videos.map(video => <li key={video._id}><YouTubeSecondaryCard video={video} /></li>)}
+                {videos.slice(0,5).map(video => <li key={video._id}><YouTubeSecondaryCard video={video} /></li>)}
             </ul>
         </div>
     );

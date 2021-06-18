@@ -80,7 +80,7 @@ span {
     }
 }
 
-.active {
+.show {
     display: block;
     @include tablet {
         display: none;

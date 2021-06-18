@@ -8,6 +8,12 @@
         @include tablet {
             width: 20vw;
         }
+        @include phone {
+            width: 30vw;
+        }
+        @include smphone {
+            width: 35vw;
+        }
     }
     &__brand {
         @include phone {
@@ -19,6 +25,15 @@
     }
     &__list {
         min-width: 10vw;
+        @include tablet {
+            min-width: 20vw;
+        }
+        @include phone {
+            min-width: 30vw;
+        }
+        @include smphone {
+            min-width: 35vw;
+        }
         &__item {
             border: none;
             &:focus {

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-export const VideoCard = ({ name, _id }) => {
+import { shortNumber } from '../../utils'
+export const VideoCard = ({ name, _id, creator, stats, uploadOn, duration}) => {
     const thumbnailImage = `https://img.youtube.com/vi/${_id}/hqdefault.jpg`
     return (
         <div key={_id} className="Video-card card card--col flex flex--column">
@@ -10,6 +11,10 @@ export const VideoCard = ({ name, _id }) => {
                 </div>
                 <div className="Video-card__content card__content--col flex flex--column flex--justify_around">
                     <h3 className="Video-name">{name}</h3>
+                    <p className="Video-context color-gray-600">{creator.name}</p>
+                    <p className="Video-context">
+                        <span className="color-gray-600">{shortNumber(stats.views)} views</span>
+                    </p>
                 </div>
             </Link>
         </div>

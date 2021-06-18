@@ -51,3 +51,71 @@
         }
     }
 }
+
+.Register {
+    transform: translate(-3%, 100%);
+    @include phone {
+        transform: translate(-2%, 100%);
+    }
+}
+
+.Login,
+.SignUp {
+    height: 100vh;
+    &-card {
+        height: 60%;
+        width: 35%;
+        transform: translate(-8%, -15%);
+        @include tablet {
+            width: 50%;
+            transform: translate(-6%, -15%);
+        }
+        @include phone {
+            width: 70%;
+            transform: translate(-3%, -15%);
+        }
+        @include smphone {
+            width: 75%;
+        }
+        @include vsmphone {
+            width: 80%;
+        }
+    }
+    &-badge {
+        width: 90%;
+        text-align: center;
+    }
+    &-form {
+        width: 90%;
+        height: 80%;
+    }
+}
+
+.Login {
+    height: 92vh;
+}
+
+.NavLogin {
+    width: 35%;
+    font-size: 2rem;
+    height: 7vh;
+    @include tablet {
+        width: 50%;
+    }
+    @include phone {
+        width: 70%;
+    }
+    @include smphone {
+        width: 75%;
+    }
+    @include vsmphone {
+        width: 80%;
+    }
+    &-item {
+        transform: translateY(-15%);
+    }
+}
+
+.input-container {
+    min-width: 100%;
+}

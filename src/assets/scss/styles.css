@@ -74,6 +74,118 @@
   color: var(--secondary-color);
 }
 
+.Register {
+  -webkit-transform: translate(-3%, 100%);
+          transform: translate(-3%, 100%);
+}
+
+@media only screen and (max-width: 500px) {
+  .Register {
+    -webkit-transform: translate(-2%, 100%);
+            transform: translate(-2%, 100%);
+  }
+}
+
+.Login,
+.SignUp {
+  height: 100vh;
+}
+
+.Login-card,
+.SignUp-card {
+  height: 60%;
+  width: 35%;
+  -webkit-transform: translate(-8%, -15%);
+          transform: translate(-8%, -15%);
+}
+
+@media only screen and (max-width: 750px) {
+  .Login-card,
+  .SignUp-card {
+    width: 50%;
+    -webkit-transform: translate(-6%, -15%);
+            transform: translate(-6%, -15%);
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .Login-card,
+  .SignUp-card {
+    width: 70%;
+    -webkit-transform: translate(-3%, -15%);
+            transform: translate(-3%, -15%);
+  }
+}
+
+@media only screen and (max-width: 390px) {
+  .Login-card,
+  .SignUp-card {
+    width: 75%;
+  }
+}
+
+@media only screen and (max-width: 345px) {
+  .Login-card,
+  .SignUp-card {
+    width: 80%;
+  }
+}
+
+.Login-badge,
+.SignUp-badge {
+  width: 90%;
+  text-align: center;
+}
+
+.Login-form,
+.SignUp-form {
+  width: 90%;
+  height: 80%;
+}
+
+.Login {
+  height: 92vh;
+}
+
+.NavLogin {
+  width: 35%;
+  font-size: 2rem;
+  height: 7vh;
+}
+
+@media only screen and (max-width: 750px) {
+  .NavLogin {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .NavLogin {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 390px) {
+  .NavLogin {
+    width: 75%;
+  }
+}
+
+@media only screen and (max-width: 345px) {
+  .NavLogin {
+    width: 80%;
+  }
+}
+
+.NavLogin-item {
+  -webkit-transform: translateY(-15%);
+          transform: translateY(-15%);
+}
+
+.input-container {
+  min-width: 100%;
+}
+
 .header {
   border-bottom: 0;
 }
@@ -93,6 +205,18 @@
 }
 
 @media only screen and (max-width: 500px) {
+  .header__nav {
+    width: 30vw;
+  }
+}
+
+@media only screen and (max-width: 390px) {
+  .header__nav {
+    width: 35vw;
+  }
+}
+
+@media only screen and (max-width: 500px) {
   .header__brand {
     width: 30vw;
   }
@@ -104,6 +228,24 @@
 
 .header__list {
   min-width: 10vw;
+}
+
+@media only screen and (max-width: 750px) {
+  .header__list {
+    min-width: 20vw;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .header__list {
+    min-width: 30vw;
+  }
+}
+
+@media only screen and (max-width: 390px) {
+  .header__list {
+    min-width: 35vw;
+  }
 }
 
 .header__list__item {
@@ -136,11 +278,18 @@
 
 .Video-name {
   font-size: 1rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .Video-link {
   color: var(--dark-color);
   text-decoration: none;
+}
+
+.Video-context {
+  font-size: 0.9rem;
 }
 
 .Video-card {
@@ -172,14 +321,13 @@
 }
 
 .Video-card__header {
-  min-height: 32vh;
+  min-height: 30vh;
   border-bottom: 1px solid var(--gray-300);
 }
 
 .Video-card__content {
-  margin: 0.5rem 0;
   font-size: 0.8rem;
-  min-height: 18vh;
+  min-height: 15vh;
 }
 
 .VideoSingle {
@@ -371,8 +519,8 @@
   -ms-grid-row-span: 2;
   -ms-grid-column: 2;
   grid-area: secondary;
-  -webkit-transform: translateY(1%);
-          transform: translateY(1%);
+  -webkit-transform: translateY(5%);
+          transform: translateY(5%);
 }
 
 @media only screen and (max-width: 750px) {
@@ -402,17 +550,17 @@
   }
 }
 
+.YouTubeSecondary-card-name {
+  font-size: 0.9rem;
+  color: var(--gray-200);
+}
+
 .YouTubeSecondary-card-header {
-  max-width: 40%;
+  max-width: 47%;
 }
 
 .YouTubeSecondary-card-content {
-  max-width: 57%;
-}
-
-.YouTubeSecondary-card-content-title {
-  font-size: 0.9rem;
-  color: var(--gray-200);
+  max-width: 50%;
 }
 
 .App {
@@ -504,12 +652,12 @@ span {
   color: var(--primary-color);
 }
 
-.active {
+.show {
   display: block;
 }
 
 @media only screen and (max-width: 750px) {
-  .active {
+  .show {
     display: none;
   }
 }

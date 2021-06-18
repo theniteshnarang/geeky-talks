@@ -11,10 +11,16 @@
 .Video {
     &-name {
         font-size: 1rem;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
     }
     &-link {
         color: var(--dark-color);
         text-decoration: none;
+    }
+    &-context {
+        font-size: 0.9rem;
     }
     &-card {
         max-width: 18vw;
@@ -33,13 +39,13 @@
             max-width: 75vw;
         }
         &__header {
-            min-height: 32vh;
+            min-height: 30vh;
             border-bottom: 1px solid var(--gray-300);
         }
         &__content {
-            margin: 0.5rem 0;
+            // margin: 0.5rem 0;
             font-size: 0.8rem;
-            min-height: 18vh;
+            min-height: 15vh;
         }
     }
 }
@@ -162,7 +168,7 @@
 
 .YouTubeSecondary {
     grid-area: secondary;
-    transform: translateY(1%);
+    transform: translateY(5%);
     @include tablet {
         transform: translateY(0);
     }
@@ -180,15 +186,15 @@
         @include phone {
             font-size: 0.8rem;
         }
+        &-name {
+            font-size: 0.9rem;
+            color: var(--gray-200);
+        }
         &-header {
-            max-width: 40%;
+            max-width: 47%;
         }
         &-content {
-            max-width: 57%;
-            &-title {
-                font-size: 0.9rem;
-                color: var(--gray-200);
-            }
+            max-width: 50%;
         }
     }
 }

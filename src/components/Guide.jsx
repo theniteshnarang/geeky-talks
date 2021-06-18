@@ -9,7 +9,7 @@ export const Guide = () => {
     }
     return (
         <>
-            <div className={`Guide ${guide ? 'active' : 'hide'}`}>
+            <div className={`Guide ${guide ? 'show' : 'hide'}`}>
                 <ul className="Guide-list list list-stacked flex flex--column">
                     <li className="search-bar pos-rel hide">
                         <input className="search-bar__input" type="text" name="search"
