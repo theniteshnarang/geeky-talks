@@ -1,0 +1,9 @@
+.Save,.Like {
+    transform: translateY(2.2rem);
+    height: 90vh;
+    color: var(--light-color);
+    &-content {
+        flex-wrap: wrap;
+        gap: 2rem;
+    }
+}

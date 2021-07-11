@@ -186,6 +186,32 @@
   min-width: 100%;
 }
 
+.loader, .failed, .fulfilled {
+  -webkit-transform: translateY(15rem);
+          transform: translateY(15rem);
+  font-size: 2rem;
+  color: var(--light-color);
+}
+
+.loader-like, .failed-like, .fulfilled-like {
+  -webkit-transform: translate(30rem, 15rem);
+          transform: translate(30rem, 15rem);
+}
+
+.failed {
+  color: var(--red-500);
+}
+
+.failed-like {
+  -webkit-transform: translate(20rem, 15rem);
+          transform: translate(20rem, 15rem);
+}
+
+.fulfilled {
+  -webkit-transform: translate(20rem, 15rem);
+          transform: translate(20rem, 15rem);
+}
+
 .header {
   border-bottom: 0;
 }
@@ -227,7 +253,8 @@
 }
 
 .header__list {
-  min-width: 10vw;
+  min-width: 0;
+  max-width: 10rem;
 }
 
 @media only screen and (max-width: 750px) {
@@ -260,6 +287,8 @@
 .Videos {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  gap: 0.3rem;
+  height: 150vh;
 }
 
 @media only screen and (max-width: 750px) {
@@ -293,8 +322,8 @@
 }
 
 .Video-card {
-  max-width: 18vw;
-  margin: 0.5rem;
+  max-width: 25vw;
+  border-radius: 0.2rem;
   background-color: var(--gray-300);
 }
 
@@ -321,7 +350,7 @@
 }
 
 .Video-card__header {
-  min-height: 30vh;
+  min-height: 20vh;
   border-bottom: 1px solid var(--gray-300);
 }
 
@@ -426,6 +455,13 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  background-color: var(--dark-color);
+  color: var(--light-color);
+  padding: 0;
+}
+
+.YouTubeCard-cta:hover {
+  color: var(--secondary-color);
 }
 
 @media only screen and (max-width: 750px) {
@@ -563,6 +599,19 @@
   max-width: 50%;
 }
 
+.Save, .Like {
+  -webkit-transform: translateY(2.2rem);
+          transform: translateY(2.2rem);
+  height: 90vh;
+  color: var(--light-color);
+}
+
+.Save-content, .Like-content {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 2rem;
+}
+
 .App {
   height: inherit;
   display: -ms-grid;
@@ -583,8 +632,8 @@
   -ms-grid-column: 2;
   grid-area: main;
   text-align: left;
-  -webkit-transform: translateY(5%);
-          transform: translateY(5%);
+  -webkit-transform: translateY(6%);
+          transform: translateY(6%);
 }
 
 body {

@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
-import {AiOutlineLogin,AiOutlineLogout} from 'react-icons/ai'
+import { useSelector } from 'react-redux';
+import { authLogout } from '../features/auth/authSlice';
+import { useDispatch } from 'react-redux';
 export const NavMenu = () => {
-
+    const { token, user } = useSelector(state => state.auth)
+    const dispatch = useDispatch()
     return (
         <>
             <div className="header">
@@ -16,10 +19,23 @@ export const NavMenu = () => {
                                 placeholder="Search for videos" />
                             <i className="search-bar__icon bi bi-search"></i>
                         </div>
-                        <ul className="header__list flex flex--justify_between flex--align_center">
-                            <li><Link className="header__list__item" to="/videos">Videos</Link></li>
-                            <li><Link to="/register/login"><AiOutlineLogin className="header__list__item react-icon"/></Link></li>
-                            <li><AiOutlineLogout className="react-icon header__list__item"/></li>
+                        <ul className=" flex header__list flex--align_center">
+                            <li>
+                                <Link to="/register/login" className="color-light">
+                                    <ul>
+                                        Hey, {token ? user.name : "Sign In"}
+                                    </ul>
+                                </Link>
+                            </li>
+                            {
+                                token && (
+                                    <li>
+                                        <button onClick={() => dispatch(authLogout())} className="btn btn-secondary">
+                                            Logout
+                                        </button>
+                                    </li>
+                                )
+                            }
                         </ul>
                     </nav>
                 </div>

@@ -1,15 +1,18 @@
 import { useParams } from 'react-router-dom';
-import { useStore } from '../../context/provider';
 import { useEffect } from 'react';
-import { YouTubeSecondary } from './YouTubeSecondary';
-import { YouTubeInfo } from './YouTubeInfo';
-import { YouTubeCard } from './YouTubeCard';
+import { YouTubeSecondary } from '../../pages/Videos/YouTubeSecondary';
+import { YouTubeInfo } from '../../pages/Videos/YouTubeInfo';
+import { YouTubeCard } from '../../pages/Videos/YouTubeCard';
+import { useSelector } from 'react-redux'
+import { selectVideoById, selectAllVideos } from './videoSlice';
 
 export const VideoSingle = () => {
     const { videoId } = useParams();
-    const { videos } = useStore()
 
-    const foundVideo = videos?.find(item => item._id === videoId)
+    const { videos } = useSelector(selectAllVideos)
+    const foundVideo = useSelector(state => selectVideoById(state, videoId))
+
+    console.log({ foundVideo, videos })
 
     let filteredVideos;
     const filterVideos = (videos, foundVideo) => {
@@ -20,9 +23,9 @@ export const VideoSingle = () => {
         filteredVideos = filterVideos(videos, foundVideo)
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         window.scrollTo(0, 0)
-    },[videoId])
+    }, [videoId])
 
 
     return (

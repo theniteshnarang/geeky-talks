@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { shortNumber } from '../../utils'
-export const VideoCard = ({ name, _id, creator, stats, uploadOn, duration}) => {
-    const thumbnailImage = `https://img.youtube.com/vi/${_id}/hqdefault.jpg`
+export const VideoCard = ({ name, _id, videoId, creator, stats }) => {
+    const thumbnailImage = `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`
     return (
         <div key={_id} className="Video-card card card--col flex flex--column">
-            <Link className="Video-link" to={`${_id}`}>
+            <Link className="Video-link" to={`/videos/${_id}`}>
                 <div className="Video-card__header card__header--col pos-rel flex flex--column">
                     <img src={thumbnailImage} alt="author" />
                 </div>

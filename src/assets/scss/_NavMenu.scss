@@ -24,7 +24,8 @@
         }
     }
     &__list {
-        min-width: 10vw;
+        min-width: 0;
+        max-width: 10rem;
         @include tablet {
             min-width: 20vw;
         }

@@ -119,3 +119,23 @@
 .input-container {
     min-width: 100%;
 }
+
+.loader, .failed, .fulfilled{
+    transform: translateY(15rem);
+    font-size: 2rem;
+    color: var(--light-color);
+    &-like{
+        transform: translate(30rem, 15rem);
+    }
+}
+
+.failed {
+    color: var(--red-500);
+    &-like {
+        transform: translate(20rem,15rem);
+    }
+}
+
+.fulfilled {
+    transform: translate(20rem,15rem);
+}

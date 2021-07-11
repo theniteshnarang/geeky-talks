@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 import { shortNumber } from '../../utils'
 export const YouTubeSecondaryCard = ({ video }) => {
-    const { name, _id, creator, stats } = video
-    const thumbnailImage = `https://img.youtube.com/vi/${_id}/hqdefault.jpg`
+    const { name, _id, creator, stats, videoId } = video
+    const thumbnailImage = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
     return (
 
         <Link to={`/videos/${_id}`} className="YouTubeSecondary-card card flex flex--justify_between">
@@ -22,7 +22,7 @@ export const YouTubeSecondary = ({ videos }) => {
     return (
         <div className="YouTubeSecondary">
             <ul className="flex flex--column flex--align_center">
-                {videos.slice(0,5).map(video => <li key={video._id}><YouTubeSecondaryCard video={video} /></li>)}
+                {videos.slice(0, 5).map(video => <li key={video._id}><YouTubeSecondaryCard video={video} /></li>)}
             </ul>
         </div>
     );
