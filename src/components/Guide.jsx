@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { AiOutlineHome, AiOutlineFire, AiOutlineSave, AiOutlineLike, AiOutlineMenuUnfold, AiOutlineClose } from 'react-icons/ai'
-import { MdPlaylistAddCheck } from 'react-icons/md';
 import { Link } from 'react-router-dom'
 export const Guide = () => {
     const [guide, setGuide] = useState(true)
@@ -21,7 +20,6 @@ export const Guide = () => {
                     <li className="list__item"><Link className="Guide-item flex flex--align_center" to="/"><AiOutlineFire className="react-icon" /><span className="Guide-item-name list-item-name">Trending</span></Link></li>
                     <li className="list__item"><Link className="Guide-item flex flex--align_center" to="/save"><AiOutlineSave className="react-icon" /><span className="Guide-item-name list-item-name">Saved</span></Link></li>
                     <li className="list__item"><Link className="Guide-item flex flex--align_center" to="/like"><AiOutlineLike className="react-icon" /><span className="Guide-item-name list-item-name">Liked</span></Link></li>
-                    <li className="list__item"><Link className="Guide-item flex flex--align_center" to="/"><MdPlaylistAddCheck className="react-icon" /><span className="Guide-item-name list-item-name">Playlist</span></Link></li>
                 </ul>
             </div>
             <button onClick={toggleDisplay}>
@@ -29,7 +27,6 @@ export const Guide = () => {
                     guide ? <AiOutlineMenuUnfold className="Guide-icon" /> :
                         <AiOutlineClose className="Guide-icon" />
                 }
-
             </button>
 
         </>

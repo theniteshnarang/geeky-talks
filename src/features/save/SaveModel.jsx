@@ -1,9 +1,8 @@
 import { useSelector, useDispatch } from "react-redux"
-import { saveButtonPressed as closeButtonPressed } from "./saveSlice"
 import { useState, useEffect } from 'react'
 import { backroundUnscrollable } from "../../utils"
-import { selectAllSaved } from "./saveSlice"
-import { createPlaylist, addToPlaylist } from "./saveSlice"
+import { selectAllSaved, createPlaylist, addToPlaylist, saveButtonPressed as closeButtonPressed } from "./saveSlice"
+
 export const SaveModel = () => {
     const dispatch = useDispatch()
     const [toggleCreate, setToggleCreate] = useState(false)
@@ -43,7 +42,6 @@ export const SaveModel = () => {
 
     return (
         <>
-            {/* <button className="btn btn-solid modal-open mtb-1">Open Modal</button> */}
             <div className={`flex flex--center modal ${isModelOpen || 'modal-hide'}`}>
                 <div className="modal-dialog flex flex--center">
                     <div className="modal-content">
@@ -52,12 +50,12 @@ export const SaveModel = () => {
                             <button onClick={() => dispatch(closeButtonPressed(null))} className="modal-btn modal-close btn btn-icon">
                                 <i className="bi bi-x fs-2"></i>
                             </button>
-                        </div>}
+                        </div>
                         <div className="modal-body">
                             <p className="modal-text ml-1">Select the playlist or create new one</p>
                             <ul className="modal-list list list-stacked flex flex--column">
-                                {saved.map(({ _id, name }) => (
-                                    <li key={_id} className="modal-list-item list__item">
+                                {saved.map(({ _id, name }, indx) => (
+                                    <li key={_id || indx} className="modal-list-item list__item">
                                         <label >
                                             <input
                                                 type="radio"

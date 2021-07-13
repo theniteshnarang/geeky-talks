@@ -11,7 +11,7 @@ export const VideosList = () => {
     if (status === 'loading') {
         content = <div className="loader">Loading....</div>
     } else if (status === 'fulfilled') {
-        content = videos.map(video => (<VideoCard key={video._id} {...video} />))
+        content = videos.map(video => (<VideoCard showClose={false} key={video._id} {...video} />))
     } else if (status === 'failed') {
         content = <div className="failed">{error}</div>
     }

@@ -9,7 +9,6 @@ const initialState = {
 
 export const loadLikes = createAsyncThunk('likes/loadLikes', async () => {
     const response = await axios.get('https://geeky-talks-backend.theniteshnarang.repl.co/like/u')
-    console.log({ response }, 'loadLikes')
     return response.data
 })
 
@@ -35,7 +34,6 @@ export const likeSlice = createSlice({
         [loadLikes.fulfilled]: (state, action) => {
             state.status = "fulfilled"
             state.likes = action.payload.data.likedList
-            console.log(action.payload, 'loadLikes Fulfilled')
         },
         [loadLikes.pending]: (state) => {
             state.status = "loading"

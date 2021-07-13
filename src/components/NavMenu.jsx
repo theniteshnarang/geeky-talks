@@ -21,7 +21,7 @@ export const NavMenu = () => {
                         </div>
                         <ul className=" flex header__list flex--align_center">
                             <li>
-                                <Link to="/register/login" className="color-light">
+                                <Link to="/login" className="color-light">
                                     <ul>
                                         Hey, {token ? user.name : "Sign In"}
                                     </ul>

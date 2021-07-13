@@ -20,14 +20,22 @@ export const addToPlaylist = createAsyncThunk('saved/addToPlaylist', async ({ pl
     return response.data
 })
 
+export const removeVideoFromSave = createAsyncThunk('saved/removeVideoFromSave', async ({ playlistId, _id }) => {
+    const response = await axios.delete(`https://geeky-talks-backend.theniteshnarang.repl.co/save/u/${playlistId}/${_id}`)
+    return response.data
+})
+
+export const removePlaylist = createAsyncThunk('saved/removePlaylist', async ({ playlistId }) => {
+    const response = await axios.delete(`https://geeky-talks-backend.theniteshnarang.repl.co/save/u/${playlistId}`)
+    return response.data
+})
+
 const initialState = {
     saved: [],
     status: 'idle',
     error: null,
     isModelOpen: false,
-    video: null,
-    optionSelected: '',
-    playlistName: ''
+    video: null
 }
 
 export const saveSlice = createSlice({
@@ -62,10 +70,20 @@ export const saveSlice = createSlice({
             state.saved.push(newplaylist)
         },
         [addToPlaylist.fulfilled]: (state, action) => {
-            console.log(action, "addToPlaylist fulfilled")
             const { playlistId, video } = action.meta.arg
             const findPlaylist = state.saved.find(item => item._id === playlistId)
             findPlaylist.videos.push(video)
+        },
+        [removeVideoFromSave.fulfilled]: (state, action) => {
+            const { playlistId, _id } = action.meta.arg
+            const playlistIndex = state.saved.findIndex(save => save._id === playlistId)
+            const videoIndex = state.saved[playlistIndex].videos.findIndex(video => video._id === _id)
+            videoIndex > -1 && state.saved[playlistIndex].videos.splice(videoIndex, 1)
+        },
+        [removePlaylist.fulfilled]: (state, action) => {
+            const { playlistId } = action.meta.arg
+            const playlistIndex = state.saved.findIndex(save => save._id === playlistId)
+            playlistIndex > -1 && state.saved.splice(playlistIndex, 1)
         }
     }
 

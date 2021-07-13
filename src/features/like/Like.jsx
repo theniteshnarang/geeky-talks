@@ -11,7 +11,7 @@ export const Like = () => {
         content = <div className="loader loader-like">Loading....</div>
     } else if (status === "fulfilled") {
         content = likes.length > 0 ? (
-            likes.map(item => <VideoCard key={item._id} {...item.video} />)
+            likes.map(item => <VideoCard showClose like key={item._id} {...item.video} />)
         ) : (
             <div className="fulfilled">Empty, Please like some videos</div>
         )
@@ -21,7 +21,7 @@ export const Like = () => {
 
     return (
         <div className="Like">
-            <h1 className="mb-2 color-gray-300">Your Liked videos</h1>
+            <h1 className="mb-1 color-gray-300">Your Liked videos</h1>
             <div className="Like-content flex">
                 {content}
             </div>

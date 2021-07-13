@@ -600,9 +600,9 @@
 }
 
 .Save, .Like {
-  -webkit-transform: translateY(2.2rem);
-          transform: translateY(2.2rem);
-  margin: 0 1.1rem;
+  -webkit-transform: translateY(5rem);
+          transform: translateY(5rem);
+  margin: 0 0.5rem 0 1rem;
   color: var(--light-color);
 }
 
@@ -638,8 +638,8 @@
   -ms-grid-column: 2;
   grid-area: main;
   text-align: left;
-  -webkit-transform: translateY(6%);
-          transform: translateY(6%);
+  -webkit-transform: translateY(3%);
+          transform: translateY(3%);
 }
 
 body {
@@ -679,6 +679,14 @@ span {
 
 .react-icon {
   font-size: 1.5rem;
+}
+
+.fs-2 {
+  font-size: 2rem;
+}
+
+.w-100 {
+  width: 100%;
 }
 
 .search-bar {

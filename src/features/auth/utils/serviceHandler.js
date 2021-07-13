@@ -16,7 +16,7 @@ export const setupAuthExceptionHandler = (logout, navigate, dispatch) => {
             if (error?.response?.request?.status === UNAUTHORIZED) {
                 console.log("Interceptor running")
                 dispatch(logout())
-                navigate("/register/login");
+                navigate("/login");
             }
             return Promise.reject(error);
         }

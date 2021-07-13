@@ -1,22 +1,16 @@
-import React from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
-import { VideoSingle } from './features/videos/VideoSingle';
-import { SignUp, Register } from './pages/Account';
-import { Login } from './features/auth/LoginForm';
-import { Like } from './features/like/Like';
-import { Save } from './features/save/Save';
-// import { Home } from './pages/Home'
-import { NavMenu } from './components/NavMenu';
-import { Guide } from './components/Guide'
-import { VideosList } from './features/videos/VideosList';
-import { setupAuthExceptionHandler, setupAuthHeaderForServiceCalls } from './features/auth/utils/serviceHandler';
-import { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom';
-import { authLogout } from './features/auth/authSlice';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { loadLikes } from './features/like/likeSlice'
+import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
+import { Guide, NavMenu, PageNotFound } from './components'
+import { setupAuthExceptionHandler, setupAuthHeaderForServiceCalls } from './features/auth/utils/serviceHandler';
+import { SignUp, Login } from './features/auth';
+import { Like } from './features/like';
+import { VideosList, VideoSingle } from './features/videos';
+import { SaveModel, Save } from './features/save';
+import { authLogout } from './features/auth/authSlice';
+import { loadLikes } from './features/like/likeSlice';
 import { loadSaved } from './features/save/saveSlice';
-import { SaveModel } from './features/save/SaveModel'
+
 
 function App() {
   const navigate = useNavigate()
@@ -36,8 +30,10 @@ function App() {
 
   function PrivateRoute({ token, path, ...props }) {
     console.log({ token, path }, 'private route')
-    return token ? <Route {...props} path={path} /> : <Navigate state={{ from: path }} replace to="/register/login" />
+    return token ? <Route {...props} path={path} /> : <Navigate state={{ from: path }} replace to="/login" />
   }
+
+
 
   return (
     <div className="App">
@@ -47,13 +43,12 @@ function App() {
       <div className="Main">
         <Routes>
           <Route path="/" element={<VideosList />} />
-          <Route path="/:videoId" element={<VideoSingle />} />
+          <Route path="/v/:videoId" element={<VideoSingle />} />
           <PrivateRoute token={token} path="/like" element={<Like />} />
           <PrivateRoute token={token} path="/save" element={<Save />} />
-          <Route path="/register" element={<Register />}>
-            <Route path="login" element={<Login />} />
-            <Route path="sign-up" element={<SignUp />} />
-          </Route>
+          <Route path="/login" element={<Login />} />
+          <Route path="/sign-up" element={<SignUp />} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </div>
     </div>

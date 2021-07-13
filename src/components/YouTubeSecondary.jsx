@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom'
-import { shortNumber } from '../../utils'
+import { shortNumber } from '../utils'
 export const YouTubeSecondaryCard = ({ video }) => {
     const { name, _id, creator, stats, videoId } = video
     const thumbnailImage = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
     return (
 
-        <Link to={`/${_id}`} className="YouTubeSecondary-card card flex flex--justify_between">
+        <Link to={`/v/${_id}`} className="YouTubeSecondary-card card flex flex--justify_between">
             <div className="YouTubeSecondary-card-header card__header">
                 <img className="card__image" src={thumbnailImage} alt="card" />
             </div>

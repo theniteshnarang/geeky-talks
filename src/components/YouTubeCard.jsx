@@ -1,11 +1,11 @@
 import YouTube from 'react-youtube';
 import { AiFillLike, AiFillDislike } from 'react-icons/ai';
 import { MdPlaylistAdd } from 'react-icons/md';
-import { shortNumber } from '../../utils';
-import { addToLikes, removeFromLikes } from '../../features/like/likeSlice';
+import { shortNumber } from '../utils';
+import { addToLikes, removeFromLikes } from '../features/like/likeSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import { findLikeById } from '../../features/like/likeSlice';
-import { saveButtonPressed } from '../../features/save/saveSlice';
+import { findLikeById } from '../features/like/likeSlice';
+import { saveButtonPressed } from '../features/save/saveSlice';
 
 
 export const YouTubeCard = ({ id, video }) => {

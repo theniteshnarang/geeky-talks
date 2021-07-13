@@ -1,9 +1,7 @@
 import { useParams } from 'react-router-dom';
-import { useEffect } from 'react';
-import { YouTubeSecondary } from '../../pages/Videos/YouTubeSecondary';
-import { YouTubeInfo } from '../../pages/Videos/YouTubeInfo';
-import { YouTubeCard } from '../../pages/Videos/YouTubeCard';
 import { useSelector } from 'react-redux'
+import { useEffect } from 'react';
+import { YouTubeSecondary, YouTubeInfo, YouTubeCard } from '../../components';
 import { selectVideoById, selectAllVideos } from './videoSlice';
 
 export const VideoSingle = () => {
