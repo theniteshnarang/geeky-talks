@@ -602,7 +602,7 @@
 .Save, .Like {
   -webkit-transform: translateY(2.2rem);
           transform: translateY(2.2rem);
-  height: 90vh;
+  margin: 0 1.1rem;
   color: var(--light-color);
 }
 
@@ -610,6 +610,12 @@
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   gap: 2rem;
+}
+
+.Save-playlist-videos, .Like-playlist-videos {
+  gap: 2rem;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .App {
@@ -699,6 +705,29 @@ span {
 
 .search-bar__input {
   color: var(--primary-color);
+}
+
+.modal-body {
+  text-align: left;
+}
+
+.modal-text {
+  color: var(--gray-400);
+  margin: 0.5rem 0 0.5rem 1rem;
+}
+
+.modal-input {
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.modal-list {
+  max-height: 25vh;
+}
+
+.modal-list-item:hover {
+  background-color: unset;
+  color: unset;
 }
 
 .show {

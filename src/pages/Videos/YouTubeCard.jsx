@@ -5,12 +5,12 @@ import { shortNumber } from '../../utils';
 import { addToLikes, removeFromLikes } from '../../features/like/likeSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { findLikeById } from '../../features/like/likeSlice';
-export const YouTubeCard = ({ id, video }) => {
+import { saveButtonPressed } from '../../features/save/saveSlice';
 
+
+export const YouTubeCard = ({ id, video }) => {
     const dispatch = useDispatch()
     const foundLike = useSelector(state => findLikeById(state, id))
-
-    console.log({ foundLike })
 
     const { stats, uploadOn, name, videoId, creator } = video;
     const { views, like, dislike } = stats
@@ -18,7 +18,7 @@ export const YouTubeCard = ({ id, video }) => {
         height: '95%',
         width: '95%',
         playerVars: {
-            autoplay: 1,
+            autoplay: 0,
         },
     };
 
@@ -43,20 +43,27 @@ export const YouTubeCard = ({ id, video }) => {
                         <span>{uploadOn}</span>
                     </div>
                     <div className="YouTubeCard-content__right flex flex--align_center flex--justify_around">
-                        <button
-                            onClick={() => likeButtonPressed({ _id: id, video: { _id: id, creator, stats, videoId, name } })}
-                            className="YouTubeCard-cta btn">
-                            <AiFillLike className={`YouTubeCard-icon ${foundLike && "color-secondary"}`} />
-                            <span>{shortNumber(like)}</span>
-                        </button>
-                        <button className="YouTubeCard-cta btn">
-                            <AiFillDislike className="YouTubeCard-icon" />
-                            <span>{shortNumber(dislike)}</span>
-                        </button>
-                        <button className="YouTubeCard-cta btn">
-                            <MdPlaylistAdd className="YouTubeCard-icon" />
-                            <span>Save</span>
-                        </button>
+                        <div className="flex">
+                            <button
+                                onClick={() => likeButtonPressed({ _id: id, video: { _id: id, creator, stats, videoId, name } })}
+                                className="YouTubeCard-cta btn">
+                                <AiFillLike className={`YouTubeCard-icon ${foundLike && "color-secondary"}`} />
+                            </button>
+                            <span>&nbsp;{shortNumber(like)}</span>
+                        </div>
+
+                        <div className="flex">
+                            <button className="YouTubeCard-cta btn">
+                                <AiFillDislike className="YouTubeCard-icon" />
+                            </button>
+                            <span>&nbsp;{shortNumber(dislike)}</span>
+                        </div>
+                        <div className="flex">
+                            <button onClick={() => dispatch(saveButtonPressed({ _id: id, video: { _id: id, creator, stats, videoId, name } }))} className="YouTubeCard-cta btn">
+                                <MdPlaylistAdd className="YouTubeCard-icon" />
+                            </button>
+                            <span>&nbsp;Save</span>
+                        </div>
                     </div>
                 </div>
             </div>

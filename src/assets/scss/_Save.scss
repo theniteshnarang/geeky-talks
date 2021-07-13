@@ -1,9 +1,16 @@
 .Save,.Like {
     transform: translateY(2.2rem);
-    height: 90vh;
+    // height: 120vh;
+    margin: 0 1.1rem;
     color: var(--light-color);
     &-content {
         flex-wrap: wrap;
         gap: 2rem;
+    }
+    &-playlist{
+        &-videos{
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
     }
 }

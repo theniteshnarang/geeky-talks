@@ -15,7 +15,9 @@ import { useNavigate } from 'react-router-dom';
 import { authLogout } from './features/auth/authSlice';
 import { useDispatch, useSelector } from "react-redux";
 import { loadLikes } from './features/like/likeSlice'
-import { loadSaved } from './features/save/saveSlice'
+import { loadSaved } from './features/save/saveSlice';
+import { SaveModel } from './features/save/SaveModel'
+
 function App() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -41,12 +43,13 @@ function App() {
     <div className="App">
       <NavMenu />
       <Guide />
+      <SaveModel />
       <div className="Main">
         <Routes>
           <Route path="/" element={<VideosList />} />
+          <Route path="/:videoId" element={<VideoSingle />} />
           <PrivateRoute token={token} path="/like" element={<Like />} />
           <PrivateRoute token={token} path="/save" element={<Save />} />
-          <Route path="/videos/:videoId" element={<VideoSingle />} />
           <Route path="/register" element={<Register />}>
             <Route path="login" element={<Login />} />
             <Route path="sign-up" element={<SignUp />} />

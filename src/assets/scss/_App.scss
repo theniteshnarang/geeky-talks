@@ -80,6 +80,30 @@ span {
     }
 }
 
+.modal {
+    &-body {
+        text-align: left;
+    }
+    &-text {
+        color: var(--gray-400);
+        margin: 0.5rem 0 0.5rem 1rem;
+    }
+    &-input {
+        font-weight: bold;
+        margin-right: 0.5rem;
+    }
+    &-list {
+        max-height: 25vh;
+        &-item{
+            &:hover{
+                background-color: unset;
+                color: unset;
+            }
+        }
+    }
+}
+
+
 .show {
     display: block;
     @include tablet {

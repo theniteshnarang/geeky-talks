@@ -5,7 +5,7 @@ export const YouTubeSecondaryCard = ({ video }) => {
     const thumbnailImage = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
     return (
 
-        <Link to={`/videos/${_id}`} className="YouTubeSecondary-card card flex flex--justify_between">
+        <Link to={`/${_id}`} className="YouTubeSecondary-card card flex flex--justify_between">
             <div className="YouTubeSecondary-card-header card__header">
                 <img className="card__image" src={thumbnailImage} alt="card" />
             </div>
