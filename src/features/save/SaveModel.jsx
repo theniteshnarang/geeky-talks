@@ -9,6 +9,8 @@ export const SaveModel = () => {
     const { isModelOpen, saved, video } = useSelector(selectAllSaved)
     const [checkedOption, setCheckedOption] = useState(false)
     const [inputName, setInputName] = useState("")
+    const { user } = useSelector(state => state.auth)
+    console.log({ user })
 
     useEffect(() => {
         backroundUnscrollable(isModelOpen)
@@ -17,9 +19,9 @@ export const SaveModel = () => {
         isModelOpen || setInputName(input => "")
     }, [isModelOpen])
 
-    const handleSubmit = ({ checkedOption, inputName, video }) => {
+    const handleSubmit = ({ checkedOption, inputName, video, user }) => {
         if (inputName) {
-            dispatch(createPlaylist({ name: inputName, video }))
+            dispatch(createPlaylist({ name: inputName, video, user }))
         }
         if (checkedOption) {
             dispatch(addToPlaylist({ playlistId: checkedOption, video }))
@@ -32,7 +34,7 @@ export const SaveModel = () => {
             type="submit"
             onClick={(e) => {
                 e.preventDefault();
-                handleSubmit({ checkedOption, inputName, video })
+                handleSubmit({ checkedOption, inputName, video, user: user._id })
             }}
         >
             Save changes

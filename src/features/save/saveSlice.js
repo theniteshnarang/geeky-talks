@@ -6,9 +6,9 @@ export const loadSaved = createAsyncThunk('saved/loadSaved', async () => {
     return response.data
 })
 
-export const createPlaylist = createAsyncThunk('saved/createPlaylist', async ({ name, video }) => {
-    const response = await axios.post('https://geeky-talks-backend.theniteshnarang.repl.co/save/u', {
-        name, videos: [{ video: video._id }]
+export const createPlaylist = createAsyncThunk('saved/createPlaylist', async ({ name, video, user }) => {
+    const response = await axios.post('https://geeky-talks-backend.theniteshnarang.repl.co/save', {
+        user, name, videos: [{ video: video._id }]
     })
     return response.data
 })
