@@ -2,6 +2,18 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { setupAuthHeaderForServiceCalls } from './utils/serviceHandler';
 import { setLocalStorage, clearLocalStorage, getLocalStorage } from "./utils/localStorage";
+
+export const authLogin = createAsyncThunk('auth/login', async ({ input }) => {
+    const response = await axios.post('https://geeky-talks-backend.theniteshnarang.repl.co/auth/login', input)
+    setupAuthHeaderForServiceCalls(response.data.token)
+    return response.data
+})
+
+export const authSignUp = createAsyncThunk('auth/sign-up', async ({ input }) => {
+    const response = await axios.post('https://geeky-talks-backend.theniteshnarang.repl.co/auth/sign-up', input)
+    return response.data
+})
+
 const initialState = {
     user: getLocalStorage('login')?.['user'] || {},
     status: 'idle',
@@ -9,11 +21,6 @@ const initialState = {
     token: getLocalStorage('login')?.['token'] || null
 }
 
-export const authLogin = createAsyncThunk('auth/login', async ({ input }) => {
-    const response = await axios.post('https://geeky-talks-backend.theniteshnarang.repl.co/auth/login', input)
-    setupAuthHeaderForServiceCalls(response.data.token)
-    return response.data
-})
 
 export const authSlice = createSlice({
     name: "auth",
@@ -44,7 +51,17 @@ export const authSlice = createSlice({
             state.token = null
             state.user = {}
             state.error = action.error.message
+        },
+        [authSignUp.fulfilled]: (state, action) => {
+            state.status = "fulfilled"
+        },
+        [authSignUp.pending]: (state) => {
+            state.status = "loading"
+        },
+        [authSignUp.rejected]: (state) => {
+            state.status = "rejected"
         }
+
     }
 
 })

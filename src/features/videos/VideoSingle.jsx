@@ -10,8 +10,6 @@ export const VideoSingle = () => {
     const { videos } = useSelector(selectAllVideos)
     const foundVideo = useSelector(state => selectVideoById(state, videoId))
 
-    console.log({ foundVideo, videos })
-
     let filteredVideos;
     const filterVideos = (videos, foundVideo) => {
         return videos.filter(video => video._id !== foundVideo._id && video.creator.name === foundVideo.creator.name)

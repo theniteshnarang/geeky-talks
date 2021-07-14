@@ -38,7 +38,6 @@ export const Save = () => {
     } else if (status === "failed") {
         content = <div className="failed failed-like color-light">{error}</div>
     }
-    console.log({ content })
     return (
         <div className="Save">
             <h1 className="mb-2 color-gray-300">Your Saved Videos</h1>

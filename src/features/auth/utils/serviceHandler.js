@@ -12,9 +12,8 @@ export const setupAuthExceptionHandler = (logout, navigate, dispatch) => {
     axios.interceptors.response.use(
         (response) => response,
         (error) => {
-            console.log({ error })
             if (error?.response?.request?.status === UNAUTHORIZED) {
-                console.log("Interceptor running")
+                console.log("Interceptor running", error)
                 dispatch(logout())
                 navigate("/login");
             }

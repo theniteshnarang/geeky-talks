@@ -18,7 +18,6 @@ function App() {
   const { token } = useSelector(state => state.auth)
 
   useEffect(() => {
-    console.log("I am running with", token)
     setupAuthHeaderForServiceCalls(token)
     setupAuthExceptionHandler(authLogout, navigate, dispatch)
     if (token) {
@@ -29,7 +28,6 @@ function App() {
   }, [token, dispatch, navigate])
 
   function PrivateRoute({ token, path, ...props }) {
-    console.log({ token, path }, 'private route')
     return token ? <Route {...props} path={path} /> : <Navigate state={{ from: path }} replace to="/login" />
   }
 

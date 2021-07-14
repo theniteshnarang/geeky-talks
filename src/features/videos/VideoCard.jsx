@@ -9,10 +9,9 @@ import { removeVideoFromSave } from '../save/saveSlice'
 export const VideoCard = ({ name, _id, videoId, creator, stats, showClose, like, playlistId }) => {
     const thumbnailImage = `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`
     const dispatch = useDispatch()
+
     const handleClose = (like) => {
-        console.log({ like })
-        like && dispatch(removeFromLikes({ _id }))
-        like || dispatch(removeVideoFromSave({ playlistId, _id }))
+        return like ? dispatch(removeFromLikes({ _id })) : dispatch(removeVideoFromSave({ playlistId, _id }))
     }
 
     return (

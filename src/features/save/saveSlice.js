@@ -50,7 +50,6 @@ export const saveSlice = createSlice({
     extraReducers: {
         [loadSaved.fulfilled]: (state, action) => {
             state.status = "fulfilled"
-            console.log(action.payload)
             state.saved = action.payload.data
         },
         [loadSaved.pending]: (state) => {
@@ -61,7 +60,6 @@ export const saveSlice = createSlice({
             state.error = action.error.message
         },
         [createPlaylist.fulfilled]: (state, action) => {
-            console.log(action, "createPlaylist fulfilled")
             const newplaylist = {
                 _id: action.payload.data._id,
                 name: action.meta.arg.name,

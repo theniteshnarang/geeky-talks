@@ -18,7 +18,6 @@ export const SaveModel = () => {
     }, [isModelOpen])
 
     const handleSubmit = ({ checkedOption, inputName, video }) => {
-        console.log({ checkedOption, inputName })
         if (inputName) {
             dispatch(createPlaylist({ name: inputName, video }))
         }

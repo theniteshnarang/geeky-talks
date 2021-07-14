@@ -46,9 +46,7 @@ export const likeSlice = createSlice({
             state.likes.push(action.meta.arg)
         },
         [removeFromLikes.fulfilled]: (state, action) => {
-            console.log(action, "removeFromLikes")
             const foundLikeIndex = state.likes.findIndex(like => like._id === action.payload.id)
-            console.log({ foundLikeIndex })
             foundLikeIndex > -1 && state.likes.splice(foundLikeIndex, 1)
         }
     }
