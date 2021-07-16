@@ -8,7 +8,7 @@
 - The purpose of designing and building this project was, it's hard to be focused when you have so much distraction around. So, it's better to curb all the distraction at once.
 
 ## Lighthouse Report
-<img src="./docs/lighthouse.png" alt="geeky-talks lighthouse report"/>
+<img src="./docs/lighthouse-report.png" alt="geeky-talks lighthouse report"/>
 
 ## Highlight Features
 - Optimised Network Calls
