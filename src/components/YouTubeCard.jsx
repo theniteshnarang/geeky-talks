@@ -53,9 +53,7 @@ export const YouTubeCard = ({ id, video }) => {
                         </div>
 
                         <div className="flex">
-                            <button className="YouTubeCard-cta btn">
-                                <AiFillDislike className="YouTubeCard-icon" />
-                            </button>
+                            <AiFillDislike className="YouTubeCard-icon" />
                             <span>&nbsp;{shortNumber(dislike)}</span>
                         </div>
                         <div className="flex">

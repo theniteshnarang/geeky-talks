@@ -287,8 +287,10 @@
 .Videos {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  gap: 0.3rem;
+  gap: 1.5rem;
   height: 150vh;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
 }
 
 @media only screen and (max-width: 750px) {

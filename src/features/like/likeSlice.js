@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-
+import { toast } from 'react-toastify'
 const initialState = {
     likes: [],
     status: 'idle',
@@ -44,11 +44,21 @@ export const likeSlice = createSlice({
         },
         [addToLikes.fulfilled]: (state, action) => {
             state.likes.push(action.meta.arg)
+            toast.success("Added to liked videos")
+        },
+        [addToLikes.rejected]: (state, action) => {
+            toast.error("Couldn't Added To Liked videos")
         },
         [removeFromLikes.fulfilled]: (state, action) => {
             const foundLikeIndex = state.likes.findIndex(like => like._id === action.payload.id)
-            foundLikeIndex > -1 && state.likes.splice(foundLikeIndex, 1)
-        }
+            if (foundLikeIndex > -1) {
+                state.likes.splice(foundLikeIndex, 1)
+                toast.success("Removed form liked videos")
+            }
+        },
+        [removeFromLikes.rejected]: (state) => {
+            toast.error("Couldn't removed from liked videos")
+        },
     }
 
 })

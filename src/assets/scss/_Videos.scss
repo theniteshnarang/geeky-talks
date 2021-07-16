@@ -1,7 +1,13 @@
+// .VideoList {
+//     // width: 100%;
+// }
+
 .Videos {
     flex-wrap: wrap;
-    gap: 0.3rem;
+    gap: 1.5rem;
     height: 150vh;
+    // width: 100%;
+    align-content: flex-start;
     @include tablet {
         transform: translateY(-2%);
     }

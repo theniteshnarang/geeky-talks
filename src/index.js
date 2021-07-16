@@ -6,6 +6,7 @@ import { store } from './app/store';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { loadVideos } from './features/videos/videoSlice';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 store.dispatch(loadVideos());
 

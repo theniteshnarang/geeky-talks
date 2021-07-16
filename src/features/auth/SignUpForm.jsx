@@ -2,15 +2,27 @@ import { Register } from "./Register";
 import { useState } from "react";
 import { handleInputChange } from "./utils/inputHandler";
 import { authSignUp } from "./authSlice";
+import { useNavigate } from "react-router";
+import { unwrapResult } from "@reduxjs/toolkit";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 export const SignUp = () => {
     const [input, setInput] = useState({ name: "", email: "", password: "" })
     const dispatch = useDispatch()
-
-    const signUpHandler = (e, input) => {
+    const navigate = useNavigate()
+    const signUpHandler = async (e, input) => {
         e.preventDefault();
-        dispatch(authSignUp({ input }))
+        try {
+            const resultAction = await dispatch(authSignUp({ input }))
+            unwrapResult(resultAction)
+            navigate('/login')
+            toast.success("Sign-up Successfull, Please Login!")
+        } catch (error) {
+            console.log("Failed to login: ", error)
+            toast.error("Login Failed, Try Again")
+        }
     }
+
     return (
         <Register>
             <div className="SignUp flex flex--center">

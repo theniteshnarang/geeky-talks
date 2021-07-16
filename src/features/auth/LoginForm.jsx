@@ -6,6 +6,7 @@ import { useLocation } from "react-router-dom";
 import { unwrapResult } from '@reduxjs/toolkit'
 import { Register } from "./Register";
 import { handleInputChange } from "./utils/inputHandler";
+import { toast } from "react-toastify";
 
 export const Login = () => {
     const [input, setInput] = useState({ email: "", password: "" })
@@ -18,9 +19,11 @@ export const Login = () => {
         try {
             const resultAction = await dispatch(authLogin({ input }))
             unwrapResult(resultAction)
-            navigate(state?.from)
+            navigate(state?.from || '/')
+            toast.success("Login Successfull!")
         } catch (error) {
             console.log("Failed to login: ", error)
+            toast.error("Login Failed, Try Again")
         }
     }
     return (

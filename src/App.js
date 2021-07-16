@@ -10,7 +10,7 @@ import { SaveModel, Save } from './features/save';
 import { authLogout } from './features/auth/authSlice';
 import { loadLikes } from './features/like/likeSlice';
 import { loadSaved } from './features/save/saveSlice';
-
+import { ToastContainer } from 'react-toastify'
 
 function App() {
   const navigate = useNavigate()
@@ -49,6 +49,7 @@ function App() {
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </div>
+      <ToastContainer position="bottom-left" autoClose={1700} />
     </div>
   );
 }

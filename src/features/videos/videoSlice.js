@@ -4,6 +4,7 @@ import axios from "axios";
 const initialState = {
     videos: [],
     status: 'idle',
+    search: '',
     error: null
 }
 
@@ -17,6 +18,9 @@ export const videoSlice = createSlice({
     name: "videos",
     initialState,
     reducers: {
+        querySearch: (state, action) => {
+            state.search = action.payload.query
+        }
 
     },
     extraReducers: {
@@ -34,6 +38,8 @@ export const videoSlice = createSlice({
     }
 
 })
+
+export const { querySearch } = videoSlice.actions
 
 export const selectAllVideos = state => state.videos
 
