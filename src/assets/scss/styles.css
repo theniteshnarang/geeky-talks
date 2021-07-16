@@ -187,8 +187,8 @@
 }
 
 .loader, .failed, .fulfilled {
-  -webkit-transform: translate(27rem, 15rem);
-          transform: translate(27rem, 15rem);
+  -webkit-transform: translateY(15rem);
+          transform: translateY(15rem);
   font-size: 2rem;
   color: var(--light-color);
 }
@@ -291,6 +291,9 @@
   height: 150vh;
   -ms-flex-line-pack: start;
       align-content: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 @media only screen and (max-width: 750px) {

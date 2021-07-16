@@ -37,6 +37,7 @@
 ## Tech Stack
 - React
 - React-Redux, Redux-toolkit for Global State Management
+- Element Design for UI designing (My component library)
 - MongoDB for storing documents
 - Mongoose for interacting with MongoDB
 - Express for Network Calls and Middlewares
@@ -49,14 +50,17 @@ Password: nitesh
 
 ## Screens
 
-### Video Listing Page
+### Video Listing
 <img src="./docs/videoListing.png" alt="geeky-talks video listing page"/>
 
-### Video Single Page
+### Video Single
 <img src="./docs/videoSingle.png" alt="geeky-talks video single page"/>
 
-### Video Save Page
+### Create Playlist
+<img src="./docs/playlist.png" alt="geeky-talks playlist page"/>
+
+### Video Save
 <img src="./docs/save.png" alt="geeky-talks save page"/>
 
-### Login/Signup Page
+### Login/Signup
 <img src="./docs/login.png" alt="geeky-talks login page"/>

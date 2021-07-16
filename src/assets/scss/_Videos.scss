@@ -3,6 +3,7 @@
     gap: 1.5rem;
     height: 150vh;
     align-content: flex-start;
+    justify-content: center;
     @include tablet {
         transform: translateY(-2%);
     }

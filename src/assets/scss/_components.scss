@@ -121,7 +121,7 @@
 }
 
 .loader, .failed, .fulfilled{
-    transform: translate(27rem,15rem);
+    transform: translateY(15rem);
     font-size: 2rem;
     color: var(--light-color);
     &-like{
