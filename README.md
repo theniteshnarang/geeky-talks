@@ -24,6 +24,7 @@
 - JWT Authentication
 - Data Persistance with REST-full API
 - Password saving using bcript and salt
+- Mobile Responsive
 - Video Listing Page
 - Single Video Page
 - Create Your Own Playlist
