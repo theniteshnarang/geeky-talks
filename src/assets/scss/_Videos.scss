@@ -1,12 +1,7 @@
-// .VideoList {
-//     // width: 100%;
-// }
-
 .Videos {
     flex-wrap: wrap;
     gap: 1.5rem;
     height: 150vh;
-    // width: 100%;
     align-content: flex-start;
     @include tablet {
         transform: translateY(-2%);
@@ -182,7 +177,7 @@
 
 .YouTubeSecondary {
     grid-area: secondary;
-    transform: translateY(5%);
+    transform: translateY(2.5%);
     @include tablet {
         transform: translateY(0);
     }
@@ -206,6 +201,9 @@
         }
         &-header {
             max-width: 47%;
+        }
+        &-creator,&-views {
+            font-size: 0.8rem;
         }
         &-content {
             max-width: 50%;

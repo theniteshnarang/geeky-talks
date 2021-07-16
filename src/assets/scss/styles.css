@@ -187,8 +187,8 @@
 }
 
 .loader, .failed, .fulfilled {
-  -webkit-transform: translateY(15rem);
-          transform: translateY(15rem);
+  -webkit-transform: translate(27rem, 15rem);
+          transform: translate(27rem, 15rem);
   font-size: 2rem;
   color: var(--light-color);
 }
@@ -557,8 +557,8 @@
   -ms-grid-row-span: 2;
   -ms-grid-column: 2;
   grid-area: secondary;
-  -webkit-transform: translateY(5%);
-          transform: translateY(5%);
+  -webkit-transform: translateY(2.5%);
+          transform: translateY(2.5%);
 }
 
 @media only screen and (max-width: 750px) {
@@ -595,6 +595,10 @@
 
 .YouTubeSecondary-card-header {
   max-width: 47%;
+}
+
+.YouTubeSecondary-card-creator, .YouTubeSecondary-card-views {
+  font-size: 0.8rem;
 }
 
 .YouTubeSecondary-card-content {
@@ -640,8 +644,8 @@
   -ms-grid-column: 2;
   grid-area: main;
   text-align: left;
-  -webkit-transform: translateY(3%);
-          transform: translateY(3%);
+  -webkit-transform: translateY(6%);
+          transform: translateY(6%);
 }
 
 body {

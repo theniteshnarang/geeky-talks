@@ -23,7 +23,7 @@ export const VideosList = () => {
     }
 
     return (
-        <div className="VideosList mt-3 ml-1">
+        <div className="VideosList ml-1">
             <div className="Videos flex">
                 {content}
             </div>

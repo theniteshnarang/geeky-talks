@@ -18,7 +18,7 @@ export const YouTubeCard = ({ id, video }) => {
         height: '95%',
         width: '95%',
         playerVars: {
-            autoplay: 0,
+            autoplay: 1,
         },
     };
 

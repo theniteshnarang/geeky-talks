@@ -11,29 +11,13 @@
 .Main {
     grid-area: main;
     text-align: left;
-    transform: translateY(3%);
+    transform: translateY(6%);
 }
 
 body {
     background-color: var(--dark-color);
 }
 
-// .btn {
-//     &-secondary {
-//         &:hover {
-//             border: none;
-//             background-color: #3e395e;
-//         }
-//     }
-//     &-primary {
-//         border: 0.5px solid var(--primary-color);
-//         &:hover {
-//             border: none;
-//             background-color: var(--secondary-color);
-//             color: var(--primary-color);
-//         }
-//     }
-// }
 span {
     font-weight: normal;
 }
