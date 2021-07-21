@@ -1,18 +1,26 @@
 import { useState } from 'react'
 import { AiOutlineHome, AiOutlineSave, AiOutlineLike, AiOutlineMenuUnfold, AiOutlineClose } from 'react-icons/ai'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { querySearch } from '../features/videos/videoSlice';
+import { useDispatch } from 'react-redux';
+import { debounce } from 'lodash';
 export const Guide = () => {
     const [guide, setGuide] = useState(true)
+    const dispatch = useDispatch()
     function toggleDisplay() {
         return setGuide(guide => !guide)
     }
+    const searchInput = (e) => {
+        dispatch(querySearch({ query: e.target.value }))
+    }
+    const debounced = debounce(searchInput, 300)
     return (
         <>
             <div className={`Guide ${guide ? 'show' : 'hide'}`}>
                 <ul className="Guide-list list list-stacked flex flex--column">
                     <li className="search-bar pos-rel hide">
                         <input className="search-bar__input" type="text" name="search"
-                            // onChange = {(e) => storeDispatch(searchStore(e.target.value))}
+                            onChange={(e) => debounced(e)}
                             placeholder="Search for videos" />
                         <i className="search-bar__icon bi bi-search"></i>
                     </li>
