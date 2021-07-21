@@ -52,10 +52,10 @@ export const YouTubeCard = ({ id, video }) => {
                             <span>&nbsp;{shortNumber(like)}</span>
                         </div>
 
-                        <div className="flex">
+                        {/* <div className="flex">
                             <AiFillDislike className="YouTubeCard-icon" />
                             <span>&nbsp;{shortNumber(dislike)}</span>
-                        </div>
+                        </div> */}
                         <div className="flex">
                             <button onClick={() => dispatch(saveButtonPressed({ _id: id, video: { _id: id, creator, stats, videoId, name } }))} className="YouTubeCard-cta btn">
                                 <MdPlaylistAdd className="YouTubeCard-icon" />

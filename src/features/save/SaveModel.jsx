@@ -10,7 +10,6 @@ export const SaveModel = () => {
     const [checkedOption, setCheckedOption] = useState(false)
     const [inputName, setInputName] = useState("")
     const { user } = useSelector(state => state.auth)
-    console.log({ user })
 
     useEffect(() => {
         backroundUnscrollable(isModelOpen)

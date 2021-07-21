@@ -27,13 +27,13 @@
         min-width: 0;
         max-width: 10rem;
         @include tablet {
-            min-width: 20vw;
+            min-width: 23vw;
         }
         @include phone {
-            min-width: 30vw;
+            min-width: 34vw;
         }
         @include smphone {
-            min-width: 35vw;
+            min-width: 40vw;
         }
         &__item {
             border: none;

@@ -5,6 +5,7 @@
     "dependencies": {
         "@reduxjs/toolkit": "^1.6.0",
         "axios": "^0.21.1",
+        "formik": "^2.2.9",
         "history": "^5.0.0",
         "node-sass": "^5.0.0",
         "react": "^17.0.2",
@@ -16,7 +17,8 @@
         "react-scripts": "4.0.3",
         "react-toastify": "^7.0.4",
         "react-youtube": "^7.13.1",
-        "uuid": "^8.3.2"
+        "uuid": "^8.3.2",
+        "yup": "^0.32.9"
     },
     "scripts": {
         "start": "react-scripts start",

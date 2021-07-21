@@ -119,6 +119,14 @@
 .input-container {
     min-width: 100%;
 }
+.input-error{
+    margin-top: 0.5rem;
+}
+
+.disabled-btn {
+    cursor: not-allowed !important;
+    background-color: var(--gray-500);
+}
 
 .loader, .failed, .fulfilled{
     transform: translateY(15rem);

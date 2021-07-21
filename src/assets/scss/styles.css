@@ -186,6 +186,15 @@
   min-width: 100%;
 }
 
+.input-error {
+  margin-top: 0.5rem;
+}
+
+.disabled-btn {
+  cursor: not-allowed !important;
+  background-color: var(--gray-500);
+}
+
 .loader, .failed, .fulfilled {
   -webkit-transform: translateY(15rem);
           transform: translateY(15rem);
@@ -259,19 +268,19 @@
 
 @media only screen and (max-width: 750px) {
   .header__list {
-    min-width: 20vw;
+    min-width: 23vw;
   }
 }
 
 @media only screen and (max-width: 500px) {
   .header__list {
-    min-width: 30vw;
+    min-width: 34vw;
   }
 }
 
 @media only screen and (max-width: 390px) {
   .header__list {
-    min-width: 35vw;
+    min-width: 40vw;
   }
 }
 
@@ -294,20 +303,6 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-}
-
-@media only screen and (max-width: 750px) {
-  .Videos {
-    -webkit-transform: translateY(-2%);
-            transform: translateY(-2%);
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  .Videos {
-    -webkit-transform: translateY(-3.7%);
-            transform: translateY(-3.7%);
-  }
 }
 
 .Video-name {
@@ -502,18 +497,18 @@
 }
 
 .YouTubeCard-content__right {
-  width: 20vw;
+  width: 15vw;
 }
 
 @media only screen and (max-width: 750px) {
   .YouTubeCard-content__right {
-    width: 35vw;
+    width: 27vw;
   }
 }
 
 @media only screen and (max-width: 500px) {
   .YouTubeCard-content__right {
-    width: 45vw;
+    width: 30vw;
   }
 }
 
