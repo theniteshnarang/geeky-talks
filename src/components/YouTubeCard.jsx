@@ -1,5 +1,5 @@
 import YouTube from 'react-youtube';
-import { AiFillLike, AiFillDislike } from 'react-icons/ai';
+import { AiFillLike } from 'react-icons/ai';
 import { MdPlaylistAdd } from 'react-icons/md';
 import { shortNumber } from '../utils';
 import { addToLikes, removeFromLikes } from '../features/like/likeSlice';
@@ -13,7 +13,7 @@ export const YouTubeCard = ({ id, video }) => {
     const foundLike = useSelector(state => findLikeById(state, id))
 
     const { stats, uploadOn, name, videoId, creator } = video;
-    const { views, like, dislike } = stats
+    const { views, like } = stats
     const options = {
         height: '95%',
         width: '95%',

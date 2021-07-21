@@ -32,7 +32,6 @@ export const Login = () => {
             navigate(state?.from || '/')
             toast.success("Login Successfull!")
         } catch (error) {
-            console.log("Failed to login: ", error)
             toast.error("Login Failed, Try Again")
         }
     }

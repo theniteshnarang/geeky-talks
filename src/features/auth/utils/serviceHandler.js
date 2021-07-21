@@ -13,7 +13,6 @@ export const setupAuthExceptionHandler = (logout, navigate, dispatch) => {
         (response) => response,
         (error) => {
             if (error?.response?.request?.status === UNAUTHORIZED) {
-                console.log("Interceptor running", error)
                 dispatch(logout())
                 navigate("/login");
             }

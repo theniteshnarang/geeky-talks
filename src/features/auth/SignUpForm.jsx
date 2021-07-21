@@ -31,7 +31,6 @@ export const SignUp = () => {
             navigate('/login')
             toast.success("Sign-up Successfull, Please Login!")
         } catch (error) {
-            console.log("Failed to login: ", error)
             toast.error("Login Failed, Try Again")
         }
     }

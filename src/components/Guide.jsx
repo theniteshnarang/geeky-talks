@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { AiOutlineHome, AiOutlineFire, AiOutlineSave, AiOutlineLike, AiOutlineMenuUnfold, AiOutlineClose } from 'react-icons/ai'
+import { AiOutlineHome, AiOutlineSave, AiOutlineLike, AiOutlineMenuUnfold, AiOutlineClose } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
 export const Guide = () => {
     const [guide, setGuide] = useState(true)
