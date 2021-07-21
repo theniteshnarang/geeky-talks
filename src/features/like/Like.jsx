@@ -21,8 +21,8 @@ export const Like = () => {
 
     return (
         <div className="Like">
-            <h1 className="mb-1 color-gray-300">Your Liked videos</h1>
-            <div className="Like-content flex">
+            <h1 className="Like-title mb-1 color-gray-300">Your Liked videos</h1>
+            <div className="Like-content flex Like-playlist-videos">
                 {content}
             </div>
         </div>

@@ -34,6 +34,7 @@
 - Add To Like
 - Remove From Like
 - Search Videos With the Name
+- Form Validation using Formik
 
 ## Tech Stack
 - React

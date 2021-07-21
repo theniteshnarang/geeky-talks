@@ -134,6 +134,12 @@
     color: var(--light-color);
     &-like{
         transform: translate(30rem, 15rem);
+        @include tablet {
+            transform: translate(7rem,15rem);
+        }
+        @include phone {
+            transform: translate(0rem,15rem);
+        }
     }
 }
 
@@ -141,9 +147,21 @@
     color: var(--red-500);
     &-like {
         transform: translate(20rem,15rem);
+        @include tablet {
+            transform: translate(7rem,15rem);
+        }
+        @include phone {
+            transform: translate(0rem,15rem);
+        }
     }
 }
 
 .fulfilled {
     transform: translate(20rem,15rem);
+    @include tablet {
+        transform: translate(7rem,15rem);
+    }
+    @include phone {
+        transform: translate(0rem,15rem);
+    }
 }

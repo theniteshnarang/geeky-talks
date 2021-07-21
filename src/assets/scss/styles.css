@@ -207,6 +207,20 @@
           transform: translate(30rem, 15rem);
 }
 
+@media only screen and (max-width: 750px) {
+  .loader-like, .failed-like, .fulfilled-like {
+    -webkit-transform: translate(7rem, 15rem);
+            transform: translate(7rem, 15rem);
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .loader-like, .failed-like, .fulfilled-like {
+    -webkit-transform: translate(0rem, 15rem);
+            transform: translate(0rem, 15rem);
+  }
+}
+
 .failed {
   color: var(--red-500);
 }
@@ -216,9 +230,37 @@
           transform: translate(20rem, 15rem);
 }
 
+@media only screen and (max-width: 750px) {
+  .failed-like {
+    -webkit-transform: translate(7rem, 15rem);
+            transform: translate(7rem, 15rem);
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .failed-like {
+    -webkit-transform: translate(0rem, 15rem);
+            transform: translate(0rem, 15rem);
+  }
+}
+
 .fulfilled {
   -webkit-transform: translate(20rem, 15rem);
           transform: translate(20rem, 15rem);
+}
+
+@media only screen and (max-width: 750px) {
+  .fulfilled {
+    -webkit-transform: translate(7rem, 15rem);
+            transform: translate(7rem, 15rem);
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .fulfilled {
+    -webkit-transform: translate(0rem, 15rem);
+            transform: translate(0rem, 15rem);
+  }
 }
 
 .header {
@@ -604,10 +646,23 @@
 }
 
 .Save, .Like {
-  -webkit-transform: translateY(5rem);
-          transform: translateY(5rem);
+  -webkit-transform: translateY(1.5rem);
+          transform: translateY(1.5rem);
   margin: 0 0.5rem 0 1rem;
   color: var(--light-color);
+}
+
+@media only screen and (max-width: 750px) {
+  .Save, .Like {
+    -webkit-transform: translateY(0rem);
+            transform: translateY(0rem);
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .Save-title, .Like-title {
+    font-size: 1.5rem;
+  }
 }
 
 .Save-content, .Like-content {
@@ -620,6 +675,29 @@
   gap: 2rem;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 500px) {
+  .Save-playlist-videos, .Like-playlist-videos {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+.Save-playlist-remove, .Like-playlist-remove {
+  margin-right: 3rem;
+}
+
+@media only screen and (max-width: 500px) {
+  .Save-playlist-remove, .Like-playlist-remove {
+    margin-right: 1rem;
+  }
+}
+
+.Like {
+  -webkit-transform: translateY(3.5rem);
+          transform: translateY(3.5rem);
 }
 
 .App {

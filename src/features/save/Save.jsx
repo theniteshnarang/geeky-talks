@@ -21,7 +21,7 @@ export const Save = () => {
                             <h3>{save.name.toUpperCase()}</h3>
                             <button
                                 onClick={() => dispatch(removePlaylist({ playlistId: save._id }))}
-                                className="btn btn-outline bg-dark color-light mr-3">
+                                className="Save-playlist-remove btn btn-outline bg-dark color-light">
                                 Remove {save.name}
                             </button>
                         </div>
@@ -40,7 +40,7 @@ export const Save = () => {
     }
     return (
         <div className="Save">
-            <h1 className="mb-2 color-gray-300">Your Saved Videos</h1>
+            <h1 className="Save-title mb-2 color-gray-300">Your Saved Videos</h1>
             <div className="Save-content flex">
                 {content}
             </div>
