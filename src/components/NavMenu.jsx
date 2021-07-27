@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { authLogout } from '../features/auth/authSlice';
 import { useDispatch } from 'react-redux';
@@ -10,7 +10,7 @@ import { debounce } from 'lodash'
 export const NavMenu = () => {
     const { token, user } = useSelector(state => state.auth)
     const dispatch = useDispatch()
-
+    const { pathname } = useLocation()
     const searchInput = (e) => {
         dispatch(querySearch({ query: e.target.value }))
     }
@@ -26,10 +26,15 @@ export const NavMenu = () => {
                     </Link>
                     <nav className="header__nav flex flex--justify_between flex--align_center">
                         <div className="search-bar pos-rel show">
-                            <input className="search-bar__input" type="text" name="search"
-                                onChange={(e) => debounced(e)}
-                                placeholder="Search for videos" />
-                            <i className="search-bar__icon bi bi-search"></i>
+                            {pathname === "/" && (
+                                <>
+                                    <input className="search-bar__input" type="text" name="search"
+                                        onChange={(e) => debounced(e)}
+                                        placeholder="Search for videos"
+                                    />
+                                    <i className="search-bar__icon bi bi-search"></i>
+                                </>
+                            )}
                         </div>
                         <ul className=" flex header__list flex--align_center">
                             <li>

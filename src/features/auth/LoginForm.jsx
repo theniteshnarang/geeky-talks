@@ -5,12 +5,15 @@ import { useLocation } from "react-router-dom";
 import { unwrapResult } from '@reduxjs/toolkit'
 import { Register } from "./Register";
 import { toast } from "react-toastify";
+import { useState } from 'react'
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
 export const Login = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState(false)
     const { state } = useLocation()
 
     const loginSchema = Yup.object().shape({
@@ -27,12 +30,16 @@ export const Login = () => {
 
     const loginHandler = async (input) => {
         try {
+            setLoading(loading => true)
             const resultAction = await dispatch(authLogin({ input }))
             unwrapResult(resultAction)
             navigate(state?.from || '/')
             toast.success("Login Successfull!")
         } catch (error) {
-            toast.error("Login Failed, Try Again")
+            setError(true)
+            toast.error("Login Failed")
+        } finally {
+            setLoading(loading => false)
         }
     }
     return (
@@ -75,6 +82,8 @@ export const Login = () => {
                                                 name="password" component="span" className="input-error color-red-300"
                                             />
                                         </div>
+                                        {error && <span className="color-red-500">Password or Username is incorrect</span>}
+                                        {!dirty && setError(false)}
                                         <button
                                             type="submit"
                                             className={`Login-btn btn btn-secondary btn-round--corner ${!(dirty && isValid) && "disabled-btn"}`}
@@ -88,7 +97,9 @@ export const Login = () => {
                         }
 
                     </Formik>
-                    <button onClick={() => loginHandler({ email: "guest@mail.com", password: "guest" })} className="btn btn-outline btn-sm">Login As Guest</button>
+                    <button onClick={() => loginHandler({ email: "guest@mail.com", password: "guest" })} className="btn btn-outline btn-sm">
+                        {loading ? "Loading..." : "Login As Guest"}
+                    </button>
                 </div>
             </div>
         </Register>

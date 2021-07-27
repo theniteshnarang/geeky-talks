@@ -4,12 +4,13 @@ import { useNavigate } from "react-router";
 import { unwrapResult } from "@reduxjs/toolkit";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
+import { useState } from 'react'
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 export const SignUp = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
-
+    const [loading, setLoading] = useState(false)
     const initialValues = {
         name: "",
         email: "",
@@ -26,12 +27,15 @@ export const SignUp = () => {
 
     const signUpHandler = async (input) => {
         try {
+            setLoading(loading => true)
             const resultAction = await dispatch(authSignUp({ input }))
             unwrapResult(resultAction)
             navigate('/login')
             toast.success("Sign-up Successfull, Please Login!")
         } catch (error) {
             toast.error("Login Failed, Try Again")
+        } finally {
+            setLoading(loading => false)
         }
     }
 
@@ -92,7 +96,7 @@ export const SignUp = () => {
                                         className={`SignUp-btn btn btn-secondary btn-round--corner ${!(dirty && isValid) && "disabled-btn"}`}
                                         disabled={!(dirty && isValid)}
                                     >
-                                        Submit
+                                        {loading ? "Loading..." : "Submit"}
                                     </button>
                                 </Form>
                             )

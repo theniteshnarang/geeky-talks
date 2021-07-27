@@ -1,5 +1,5 @@
 .Save,.Like {
-    transform: translateY(2.5rem);
+    transform: translateY(4rem);
     margin: 0 0.5rem 0 1rem;
     color: var(--light-color);
     &-title{
@@ -26,7 +26,4 @@
             }
         }
     }
-}
-.Like {
-    transform: translateY(3rem);
 }
