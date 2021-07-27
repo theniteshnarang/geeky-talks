@@ -45,8 +45,8 @@ export const SignUp = () => {
                         validationSchema={signUpSchema}
                         onSubmit={(values) => {
                             signUpHandler(values)
-                        }
-                        }>
+                        }}
+                    >
                         {(formik) => {
                             const { errors, touched, isValid, dirty } = formik;
                             return (

@@ -88,6 +88,7 @@ export const Login = () => {
                         }
 
                     </Formik>
+                    <button onClick={() => loginHandler({ email: "guest@mail.com", password: "guest" })} className="btn btn-outline btn-sm">Login As Guest</button>
                 </div>
             </div>
         </Register>
