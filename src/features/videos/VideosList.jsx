@@ -17,7 +17,7 @@ export const VideosList = () => {
     if (status === 'loading') {
         content = <div className="loader">Loading....</div>
     } else if (status === 'fulfilled') {
-        content = filteredVideos.map(video => (<VideoCard showClose={false} key={video._id} {...video} />))
+        content = filteredVideos.length > 0 ? filteredVideos.map(video => (<VideoCard showClose={false} key={video._id} {...video} />)) : <h1 className="color-light mt-4">No Matching Video Found</h1>
     } else if (status === 'failed') {
         content = <div className="failed">{error}</div>
     }

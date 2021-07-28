@@ -40,14 +40,14 @@ export const NavMenu = () => {
                             <li>
                                 <Link to="/login" className="color-light">
                                     <ul>
-                                        Hey, {token ? user.name : "Sign In"}
+                                        {token ? user.name : "Sign In"}
                                     </ul>
                                 </Link>
                             </li>
                             {
                                 token && (
                                     <li>
-                                        <button onClick={() => dispatch(authLogout())} className="btn btn-secondary">
+                                        <button onClick={() => dispatch(authLogout())} className="btn btn-secondary ml-1">
                                             Logout
                                         </button>
                                     </li>

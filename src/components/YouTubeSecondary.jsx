@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { shortNumber } from '../utils'
+import { getTwoRandomNumber, getNumberHavingDifferenceSix } from './util'
 export const YouTubeSecondaryCard = ({ video }) => {
     const { name, _id, creator, stats, videoId } = video
     const thumbnailImage = `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`
@@ -19,10 +20,15 @@ export const YouTubeSecondaryCard = ({ video }) => {
     );
 }
 export const YouTubeSecondary = ({ videos }) => {
+
+
+    const [num1, num2] = getTwoRandomNumber(videos.length)
+
+    const [start, end] = getNumberHavingDifferenceSix(num1, num2)
     return (
         <div className="YouTubeSecondary">
             <ul className="flex flex--column flex--align_center">
-                {videos.slice(0, 6).map(video => <li key={video._id}><YouTubeSecondaryCard video={video} /></li>)}
+                {videos.slice(start, end).map(video => <li key={video._id}><YouTubeSecondaryCard video={video} /></li>)}
             </ul>
         </div>
     );

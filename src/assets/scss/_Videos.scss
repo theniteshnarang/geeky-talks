@@ -97,6 +97,7 @@
     }
     @include smphone {
         height: 47vh;
+        margin-top: 1.3rem;
     }
     &-body {
         margin: 0.7rem 0.5rem 0 0.5rem;
@@ -173,7 +174,7 @@
 
 .YouTubeSecondary {
     grid-area: secondary;
-    transform: translateY(2.5%);
+    transform: translateY(3.5%);
     @include tablet {
         transform: translateY(0);
     }

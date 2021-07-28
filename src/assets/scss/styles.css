@@ -73,10 +73,6 @@
   }
 }
 
-.Guide-icon:hover {
-  color: var(--dark-color);
-}
-
 .Register {
   -webkit-transform: translate(-3%, 100%);
           transform: translate(-3%, 100%);
@@ -289,7 +285,7 @@
 
 @media only screen and (max-width: 390px) {
   .header__nav {
-    width: 35vw;
+    width: 37vw;
   }
 }
 
@@ -477,6 +473,7 @@
 @media only screen and (max-width: 390px) {
   .YouTubeCard {
     height: 47vh;
+    margin-top: 1.3rem;
   }
 }
 
@@ -598,8 +595,8 @@
   -ms-grid-row-span: 2;
   -ms-grid-column: 2;
   grid-area: secondary;
-  -webkit-transform: translateY(2.5%);
-          transform: translateY(2.5%);
+  -webkit-transform: translateY(3.5%);
+          transform: translateY(3.5%);
 }
 
 @media only screen and (max-width: 750px) {
