@@ -37,17 +37,20 @@
         position: fixed;
         bottom: 1rem;
         left: 1rem;
-        font-size: 2rem;
+        font-size: 2.6rem;
         display: none;
         cursor: pointer;
         margin-right: 1rem;
         color: var(--light-color);
+        background-color: var(--secondary-color);
+        padding: 0.4rem;
+        border-radius: 1.3rem;
         @include tablet {
             display: block;
             z-index: 1;
         }
         &:hover {
-            color: var(--secondary-color);
+            color: var(--dark-color);
         }
     }
 }

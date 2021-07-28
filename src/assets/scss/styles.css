@@ -56,11 +56,14 @@
   position: fixed;
   bottom: 1rem;
   left: 1rem;
-  font-size: 2rem;
+  font-size: 2.6rem;
   display: none;
   cursor: pointer;
   margin-right: 1rem;
   color: var(--light-color);
+  background-color: var(--secondary-color);
+  padding: 0.4rem;
+  border-radius: 1.3rem;
 }
 
 @media only screen and (max-width: 750px) {
@@ -71,7 +74,7 @@
 }
 
 .Guide-icon:hover {
-  color: var(--secondary-color);
+  color: var(--dark-color);
 }
 
 .Register {
@@ -336,12 +339,12 @@
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   gap: 1.5rem;
-  height: 150vh;
   -ms-flex-line-pack: start;
       align-content: flex-start;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  height: 250vh;
 }
 
 .Video-name {
@@ -361,7 +364,8 @@
 }
 
 .Video-card {
-  max-width: 25vw;
+  max-width: 20rem;
+  max-height: 20rem;
   border-radius: 0.2rem;
   background-color: var(--gray-300);
 }

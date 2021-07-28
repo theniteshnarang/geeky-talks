@@ -1,9 +1,9 @@
 .Videos {
     flex-wrap: wrap;
     gap: 1.5rem;
-    height: 150vh;
     align-content: flex-start;
     justify-content: center;
+    height: 250vh;
 }
 
 .Video {
@@ -21,7 +21,8 @@
         font-size: 0.9rem;
     }
     &-card {
-        max-width: 25vw;
+        max-width: 20rem;
+        max-height: 20rem;
         border-radius: 0.2rem;
         background-color: var(--gray-300);
         &:hover {

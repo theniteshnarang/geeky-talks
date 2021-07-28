@@ -9,7 +9,7 @@ export const VideosList = () => {
     let content;
 
     const getFilteredVideos = (videos, search) => {
-        return videos.filter(({ name }) => search.length > 0 ? name.toLowerCase().startsWith(search) : true)
+        return videos.filter(({ name }) => search.length > 0 ? name.toLowerCase().includes(search.toLowerCase()) : true)
     }
 
     const filteredVideos = getFilteredVideos(videos, search)
