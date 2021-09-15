@@ -9,7 +9,7 @@ const initialState = {
 }
 
 export const loadVideos = createAsyncThunk('videos/loadVideos', async () => {
-    const response = await axios.get('https://geeky-talks-backend.theniteshnarang.repl.co/video')
+    const response = await axios.get(`${global.config.url}/video`)
     return response.data
 })
 

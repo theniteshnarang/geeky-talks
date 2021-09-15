@@ -2,12 +2,12 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { toast } from 'react-toastify'
 export const loadSaved = createAsyncThunk('saved/loadSaved', async () => {
-    const response = await axios.get('https://geeky-talks-backend.theniteshnarang.repl.co/save/u')
+    const response = await axios.get(`${global.config.url}/save/u`)
     return response.data
 })
 
 export const createPlaylist = createAsyncThunk('saved/createPlaylist', async ({ name, video, user }) => {
-    const response = await axios.post('https://geeky-talks-backend.theniteshnarang.repl.co/save', {
+    const response = await axios.post(`${global.config.url}/save`, {
         user, name, videos: [{ video: video._id }]
     })
     return response.data
@@ -15,7 +15,7 @@ export const createPlaylist = createAsyncThunk('saved/createPlaylist', async ({ 
 
 export const addToPlaylist = createAsyncThunk('saved/addToPlaylist', async ({ playlistId, video }, { rejectWithValue }) => {
     try {
-        const response = await axios.post(`https://geeky-talks-backend.theniteshnarang.repl.co/save/u/${playlistId}`, {
+        const response = await axios.post(`${global.config.url}/save/u/${playlistId}`, {
             videos: { video: video._id }
         })
         return response.data
@@ -25,12 +25,12 @@ export const addToPlaylist = createAsyncThunk('saved/addToPlaylist', async ({ pl
 })
 
 export const removeVideoFromSave = createAsyncThunk('saved/removeVideoFromSave', async ({ playlistId, _id }) => {
-    const response = await axios.delete(`https://geeky-talks-backend.theniteshnarang.repl.co/save/u/${playlistId}/${_id}`)
+    const response = await axios.delete(`${global.config.url}/save/u/${playlistId}/${_id}`)
     return response.data
 })
 
 export const removePlaylist = createAsyncThunk('saved/removePlaylist', async ({ playlistId }) => {
-    const response = await axios.delete(`https://geeky-talks-backend.theniteshnarang.repl.co/save/u/${playlistId}`)
+    const response = await axios.delete(`${global.config.url}/save/u/${playlistId}`)
     return response.data
 })
 

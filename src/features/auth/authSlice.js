@@ -4,13 +4,13 @@ import { setupAuthHeaderForServiceCalls } from './utils/serviceHandler';
 import { setLocalStorage, clearLocalStorage, getLocalStorage } from "./utils/localStorage";
 
 export const authLogin = createAsyncThunk('auth/login', async ({ input }) => {
-    const response = await axios.post('https://geeky-talks-backend.theniteshnarang.repl.co/auth/login', input)
+    const response = await axios.post(`${global.config.url}/auth/login`, input)
     setupAuthHeaderForServiceCalls(response.data.token)
     return response.data
 })
 
 export const authSignUp = createAsyncThunk('auth/sign-up', async ({ input }) => {
-    const response = await axios.post('https://geeky-talks-backend.theniteshnarang.repl.co/auth/sign-up', input)
+    const response = await axios.post(`${global.config.url}/auth/sign-up`, input)
     return response.data
 })
 

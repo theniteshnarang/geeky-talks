@@ -24,14 +24,11 @@ function App() {
       dispatch(loadLikes())
       dispatch(loadSaved())
     }
-
   }, [token, dispatch, navigate])
 
   function PrivateRoute({ token, path, ...props }) {
     return token ? <Route {...props} path={path} /> : <Navigate state={{ from: path }} replace to="/login" />
   }
-
-
 
   return (
     <div className="App">

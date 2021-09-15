@@ -8,19 +8,19 @@ const initialState = {
 }
 
 export const loadLikes = createAsyncThunk('likes/loadLikes', async () => {
-    const response = await axios.get('https://geeky-talks-backend.theniteshnarang.repl.co/like/u')
+    const response = await axios.get(`${global.config.url}/like/u`)
     return response.data
 })
 
 export const addToLikes = createAsyncThunk('likes/addToLikes', async ({ _id }) => {
-    const response = await axios.post('https://geeky-talks-backend.theniteshnarang.repl.co/like/u', {
+    const response = await axios.post(`${global.config.url}/like/u`, {
         "likedList": { "video": _id }
     })
     return response.data
 })
 
 export const removeFromLikes = createAsyncThunk('likes/removeFromLikes', async ({ _id }) => {
-    const response = await axios.delete(`https://geeky-talks-backend.theniteshnarang.repl.co/like/u/${_id}`)
+    const response = await axios.delete(`${global.config.url}/like/u/${_id}`)
     return response.data
 })
 
