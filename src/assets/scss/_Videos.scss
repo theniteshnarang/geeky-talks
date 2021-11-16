@@ -58,9 +58,9 @@
     color: var(--light-color);
     grid-template-columns: 2fr 1fr;
     transform: translateY(-0.1%);
-    grid-template-areas: "card secondary" "info secondary";
+    grid-template-areas: "card recommendation" "info recommendation";
     @include tablet {
-        grid-template-areas: "card card""info info""secondary secondary";
+        grid-template-areas: "card card""info info""recommendation recommendation";
         transform: translateY(-2.5%);
         height: 103%;
     }
@@ -172,8 +172,8 @@
     }
 }
 
-.YouTubeSecondary {
-    grid-area: secondary;
+.Recommendation {
+    grid-area: recommendation;
     transform: translateY(3.5%);
     @include tablet {
         transform: translateY(0);

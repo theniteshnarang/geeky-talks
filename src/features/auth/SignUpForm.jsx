@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 import { useState } from 'react'
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-export const SignUp = () => {
+const SignUp = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const [loading, setLoading] = useState(false)
@@ -109,3 +109,5 @@ export const SignUp = () => {
         </Register>
     )
 }
+
+export default SignUp

@@ -1,13 +1,13 @@
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux'
 import { useEffect } from 'react';
-import { YouTubeSecondary, YouTubeInfo, YouTubeCard } from '../../components';
-import { selectVideoById, selectAllVideos } from './videoSlice';
+import { RecommendationList, YouTubeInfo, YouTubeCard } from '../../components';
+import { selectVideoById, selectVideos } from './videoSlice';
 
 export const VideoSingle = () => {
     const { videoId } = useParams();
 
-    const { videos } = useSelector(selectAllVideos)
+    const { videos } = useSelector(selectVideos)
     const foundVideo = useSelector(state => selectVideoById(state, videoId))
 
     let filteredVideos;
@@ -31,7 +31,7 @@ export const VideoSingle = () => {
                 <>
                     <YouTubeCard id={videoId} video={foundVideo} />
                     <YouTubeInfo id={videoId} video={foundVideo} />
-                    <YouTubeSecondary id={videoId} videos={filteredVideos} />
+                    <RecommendationList id={videoId} videos={filteredVideos} />
                 </>
                 :
                 <h1 className="flex flex--center">Loading...</h1>
@@ -40,4 +40,5 @@ export const VideoSingle = () => {
     )
 }
 
+export default VideoSingle
 

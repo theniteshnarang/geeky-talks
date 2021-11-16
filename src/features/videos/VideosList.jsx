@@ -1,23 +1,24 @@
 import { VideoCard } from "./VideoCard";
 import { useSelector } from "react-redux";
-import { selectAllVideos } from "./videoSlice";
+import { selectVideos } from "./videoSlice";
+import { getFilteredVideos } from "./utils/getFilteredVideos";
 
-export const VideosList = () => {
+const VideosList = () => {
 
-    const { videos, status, error, search } = useSelector(selectAllVideos)
+    const { videos, status, error, search } = useSelector(selectVideos)
 
     let content;
-
-    const getFilteredVideos = (videos, search) => {
-        return videos.filter(({ name }) => search.length > 0 ? name.toLowerCase().includes(search.toLowerCase()) : true)
-    }
 
     const filteredVideos = getFilteredVideos(videos, search)
 
     if (status === 'loading') {
         content = <div className="loader">Loading....</div>
     } else if (status === 'fulfilled') {
-        content = filteredVideos.length > 0 ? filteredVideos.map(video => (<VideoCard showClose={false} key={video._id} {...video} />)) : <h1 className="color-light mt-4">No Matching Video Found</h1>
+        content = filteredVideos.length > 0 ? (
+            filteredVideos.map(video => (<VideoCard showClose={false} key={video._id} {...video} />))
+        ) : (
+            <h1 className="color-light mt-4">No Matching Video Found</h1>
+        )
     } else if (status === 'failed') {
         content = <div className="failed">{error}</div>
     }
@@ -30,3 +31,5 @@ export const VideosList = () => {
         </div>
     )
 }
+
+export default VideosList

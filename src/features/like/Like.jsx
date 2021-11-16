@@ -1,11 +1,11 @@
 import { VideoCard } from "../../features/videos/VideoCard"
 import { useSelector } from "react-redux"
-import { selectAllLikes } from "./likeSlice"
+import { selectLikes } from "./likeSlice"
 
-export const Like = () => {
+const Like = () => {
     let content;
 
-    const { likes, status, error } = useSelector(selectAllLikes)
+    const { likes, status, error } = useSelector(selectLikes)
 
     if (status === "loading") {
         content = <div className="loader loader-like">Loading....</div>
@@ -28,3 +28,5 @@ export const Like = () => {
         </div>
     )
 }
+
+export default Like

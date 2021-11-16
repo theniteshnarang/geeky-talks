@@ -121,7 +121,7 @@ export const saveSlice = createSlice({
 
 export const { saveButtonPressed } = saveSlice.actions
 
-export const selectAllSaved = state => state.saved
+export const selectSaved = state => state.saved
 
 export const selectSavedById = (state, saveId) => state.saved.saved.find(save => save._id === saveId)
 

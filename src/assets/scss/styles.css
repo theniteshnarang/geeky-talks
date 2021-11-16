@@ -409,12 +409,12 @@
       grid-template-columns: 2fr 1fr;
   -webkit-transform: translateY(-0.1%);
           transform: translateY(-0.1%);
-      grid-template-areas: "card secondary" "info secondary";
+      grid-template-areas: "card recommendation" "info recommendation";
 }
 
 @media only screen and (max-width: 750px) {
   .VideoSingle {
-        grid-template-areas: "card card" "info info" "secondary secondary";
+        grid-template-areas: "card card" "info info" "recommendation recommendation";
     -webkit-transform: translateY(-2.5%);
             transform: translateY(-2.5%);
     height: 103%;
@@ -590,23 +590,23 @@
   }
 }
 
-.YouTubeSecondary {
+.Recommendation {
   -ms-grid-row: 1;
   -ms-grid-row-span: 2;
   -ms-grid-column: 2;
-  grid-area: secondary;
+  grid-area: recommendation;
   -webkit-transform: translateY(3.5%);
           transform: translateY(3.5%);
 }
 
 @media only screen and (max-width: 750px) {
-  .YouTubeSecondary {
+  .Recommendation {
     -webkit-transform: translateY(0);
             transform: translateY(0);
   }
 }
 
-.YouTubeSecondary-card {
+.Recommendation-card {
   margin-bottom: 0.5rem;
   background-color: var(--dark-color);
   color: var(--gray-300);
@@ -615,31 +615,31 @@
   cursor: pointer;
 }
 
-.YouTubeSecondary-card:hover {
+.Recommendation-card:hover {
   background-color: var(--gray-500);
   color: var(--light-color);
 }
 
 @media only screen and (max-width: 500px) {
-  .YouTubeSecondary-card {
+  .Recommendation-card {
     font-size: 0.8rem;
   }
 }
 
-.YouTubeSecondary-card-name {
+.Recommendation-card-name {
   font-size: 0.9rem;
   color: var(--gray-200);
 }
 
-.YouTubeSecondary-card-header {
+.Recommendation-card-header {
   max-width: 47%;
 }
 
-.YouTubeSecondary-card-creator, .YouTubeSecondary-card-views {
+.Recommendation-card-creator, .Recommendation-card-views {
   font-size: 0.8rem;
 }
 
-.YouTubeSecondary-card-content {
+.Recommendation-card-content {
   max-width: 50%;
 }
 

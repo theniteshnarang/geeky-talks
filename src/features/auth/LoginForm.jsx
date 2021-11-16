@@ -9,7 +9,7 @@ import { useState } from 'react'
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
-export const Login = () => {
+const Login = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const [loading, setLoading] = useState(false)
@@ -105,3 +105,5 @@ export const Login = () => {
         </Register>
     )
 }
+
+export default Login

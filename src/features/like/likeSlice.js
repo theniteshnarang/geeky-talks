@@ -65,7 +65,7 @@ export const likeSlice = createSlice({
 
 
 
-export const selectAllLikes = state => state.likes
+export const selectLikes = state => state.likes
 
 export const findLikeById = (state, likeId) => state.likes.likes.some(like => like._id === likeId)
 

@@ -1,15 +1,15 @@
 import { useSelector, useDispatch } from "react-redux"
 import { useState, useEffect } from 'react'
 import { backroundUnscrollable } from "../../utils"
-import { selectAllSaved, createPlaylist, addToPlaylist, saveButtonPressed as closeButtonPressed } from "./saveSlice"
-
+import { selectSaved, createPlaylist, addToPlaylist, saveButtonPressed as closeButtonPressed } from "./saveSlice"
+import { selectAuth } from "../auth/authSlice"
 export const SaveModel = () => {
     const dispatch = useDispatch()
     const [toggleCreate, setToggleCreate] = useState(false)
-    const { isModelOpen, saved, video } = useSelector(selectAllSaved)
     const [checkedOption, setCheckedOption] = useState(false)
     const [inputName, setInputName] = useState("")
-    const { user } = useSelector(state => state.auth)
+    const { user } = useSelector(selectAuth)
+    const { isModelOpen, saved, video } = useSelector(selectSaved)
 
     useEffect(() => {
         backroundUnscrollable(isModelOpen)

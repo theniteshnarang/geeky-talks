@@ -41,7 +41,7 @@ export const videoSlice = createSlice({
 
 export const { querySearch } = videoSlice.actions
 
-export const selectAllVideos = state => state.videos
+export const selectVideos = state => state.videos
 
 export const selectVideoById = (state, videoId) => state.videos.videos.find(video => video._id === videoId)
 

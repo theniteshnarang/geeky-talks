@@ -1,8 +1,9 @@
 import { NavLink } from "react-router-dom"
 import { useSelector } from "react-redux"
+import { selectAuth } from "./authSlice"
 export const Register = ({ children }) => {
-    const { token } = useSelector(state => state.auth)
-    // console.log({ token })
+    const { token } = useSelector(selectAuth)
+
     return (
         <>
             <nav className="Register flex flex--center">

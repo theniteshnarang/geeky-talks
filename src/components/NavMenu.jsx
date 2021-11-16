@@ -1,14 +1,13 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { authLogout } from '../features/auth/authSlice';
+import { authLogout, selectAuth } from '../features/auth/authSlice';
 import { useDispatch } from 'react-redux';
 import { querySearch } from '../features/videos/videoSlice';
 import { debounce } from 'lodash'
 
 
-
 export const NavMenu = () => {
-    const { token, user } = useSelector(state => state.auth)
+    const { token, user } = useSelector(selectAuth)
     const dispatch = useDispatch()
     const { pathname } = useLocation()
     const searchInput = (e) => {
