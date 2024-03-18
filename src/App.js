@@ -1,6 +1,6 @@
 import { useEffect, lazy, Suspense } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useNavigate, useLocation } from 'react-router-dom';
 import { Guide, NavMenu, PageNotFound } from './components'
 import { setupAuthExceptionHandler, setupAuthHeaderForServiceCalls } from './features/auth/utils/serviceHandler';
 import { SaveModel } from './features/save';
@@ -16,10 +16,15 @@ const Save = lazy(() => import('./features/save/Save'/* webpackChunkName: "save"
 const Login = lazy(() => import('./features/auth/LoginForm'/* webpackChunkName: "login" */))
 const SignUp = lazy(() => import('./features/auth/SignUpForm'/* webpackChunkName: "sign-up" */))
 
+const protectedRoutes = ["/like","/save"];
+
 function App() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const { token } = useSelector(selectAuth)
+  const {pathname} = useLocation()
+
+  console.log({navigate, pathname},"to dekho");
 
   useEffect(() => {
     setupAuthHeaderForServiceCalls(token)
@@ -30,9 +35,12 @@ function App() {
     }
   }, [token, dispatch, navigate])
 
-  function PrivateRoute({ token, path, ...props }) {
-    return token ? <Route {...props} path={path} /> : <Navigate state={{ from: path }} replace to="/login" />
-  }
+  useEffect(() => {
+    if(!token && protectedRoutes.includes(pathname)){
+      return navigate("/login", {replace: true, state: {from: pathname} })
+    }
+  }, [token, navigate, pathname])
+
 
   return (
     <div className="App">
@@ -44,8 +52,8 @@ function App() {
           <Routes>
             <Route path="/" element={<VideosList />} />
             <Route path="/v/:videoId" element={<VideoSingle />} />
-            <PrivateRoute token={token} path="/like" element={<Like />} />
-            <PrivateRoute token={token} path="/save" element={<Save />} />
+            <Route path="/like" element={<Like />} />
+            <Route path="/save" element={<Save />} />
             <Route path="/login" element={<Login />} />
             <Route path="/sign-up" element={<SignUp />} />
             <Route path="*" element={<PageNotFound />} />
