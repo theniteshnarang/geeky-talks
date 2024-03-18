@@ -1,6 +1,6 @@
 import { useEffect, lazy, Suspense } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { Routes, Route, Navigate, useNavigate, useLocation } from 'react-router-dom';
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import { Guide, NavMenu, PageNotFound } from './components'
 import { setupAuthExceptionHandler, setupAuthHeaderForServiceCalls } from './features/auth/utils/serviceHandler';
 import { SaveModel } from './features/save';
@@ -23,8 +23,6 @@ function App() {
   const dispatch = useDispatch()
   const { token } = useSelector(selectAuth)
   const {pathname} = useLocation()
-
-  console.log({navigate, pathname},"to dekho");
 
   useEffect(() => {
     setupAuthHeaderForServiceCalls(token)
