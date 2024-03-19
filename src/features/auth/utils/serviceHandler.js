@@ -1,22 +1,22 @@
-import axios from 'axios';
+import axios from 'axios'
 
 export const setupAuthHeaderForServiceCalls = (token) => {
     if (token) {
-        return (axios.defaults.headers.common["Authorization"] = token);
+        return (axios.defaults.headers.common['Authorization'] = token)
     }
-    delete axios.defaults.headers.common["Authorization"];
+    delete axios.defaults.headers.common['Authorization']
 }
 
 export const setupAuthExceptionHandler = (logout, navigate, dispatch) => {
-    const UNAUTHORIZED = 401;
+    const UNAUTHORIZED = 401
     axios.interceptors.response.use(
         (response) => response,
         (error) => {
             if (error?.response?.request?.status === UNAUTHORIZED) {
                 dispatch(logout())
-                navigate("/login");
+                navigate('/login')
             }
-            return Promise.reject(error);
+            return Promise.reject(error)
         }
-    );
+    )
 }

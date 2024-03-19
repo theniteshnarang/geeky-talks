@@ -1,66 +1,87 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import axios from 'axios'
 import { toast } from 'react-toastify'
 export const loadSaved = createAsyncThunk('saved/loadSaved', async () => {
     const response = await axios.get(`${global.config.url}/save/u`)
     return response.data
 })
 
-export const createPlaylist = createAsyncThunk('saved/createPlaylist', async ({ name, video, user }) => {
-    const response = await axios.post(`${global.config.url}/save`, {
-        user, name, videos: [{ video: video._id }]
-    })
-    return response.data
-})
-
-export const addToPlaylist = createAsyncThunk('saved/addToPlaylist', async ({ playlistId, video }, { rejectWithValue }) => {
-    try {
-        const response = await axios.post(`${global.config.url}/save/u/${playlistId}`, {
-            videos: { video: video._id }
+export const createPlaylist = createAsyncThunk(
+    'saved/createPlaylist',
+    async ({ name, video, user }) => {
+        const response = await axios.post(`${global.config.url}/save`, {
+            user,
+            name,
+            videos: [{ video: video._id }],
         })
         return response.data
-    } catch (error) {
-        return rejectWithValue(error.response)
     }
-})
+)
 
-export const removeVideoFromSave = createAsyncThunk('saved/removeVideoFromSave', async ({ playlistId, _id }) => {
-    const response = await axios.delete(`${global.config.url}/save/u/${playlistId}/${_id}`)
-    return response.data
-})
+export const addToPlaylist = createAsyncThunk(
+    'saved/addToPlaylist',
+    async ({ playlistId, video }, { rejectWithValue }) => {
+        try {
+            const response = await axios.post(
+                `${global.config.url}/save/u/${playlistId}`,
+                {
+                    videos: { video: video._id },
+                }
+            )
+            return response.data
+        } catch (error) {
+            return rejectWithValue(error.response)
+        }
+    }
+)
 
-export const removePlaylist = createAsyncThunk('saved/removePlaylist', async ({ playlistId }) => {
-    const response = await axios.delete(`${global.config.url}/save/u/${playlistId}`)
-    return response.data
-})
+export const removeVideoFromSave = createAsyncThunk(
+    'saved/removeVideoFromSave',
+    async ({ playlistId, _id }) => {
+        const response = await axios.delete(
+            `${global.config.url}/save/u/${playlistId}/${_id}`
+        )
+        return response.data
+    }
+)
+
+export const removePlaylist = createAsyncThunk(
+    'saved/removePlaylist',
+    async ({ playlistId }) => {
+        const response = await axios.delete(
+            `${global.config.url}/save/u/${playlistId}`
+        )
+        return response.data
+    }
+)
 
 const initialState = {
     saved: [],
     status: 'idle',
     error: null,
     isModelOpen: false,
-    video: null
+    video: null,
 }
 
 export const saveSlice = createSlice({
-    name: "saved",
+    name: 'saved',
     initialState,
     reducers: {
         saveButtonPressed: (state, action) => {
             state.isModelOpen = !state.isModelOpen
             state.video = action.payload
-        }
+        },
     },
     extraReducers: {
         [loadSaved.fulfilled]: (state, action) => {
-            state.status = "fulfilled"
+            state.status = 'fulfilled'
             state.saved = action.payload.data
         },
         [loadSaved.pending]: (state) => {
-            state.status = "loading"
+            state.status = 'loading'
         },
         [loadSaved.rejected]: (state, action) => {
-            state.status = "failed"
+            state.status = 'failed'
             state.error = action.error.message
         },
         [createPlaylist.fulfilled]: (state, action) => {
@@ -70,7 +91,7 @@ export const saveSlice = createSlice({
                 videos: [action.meta.arg.video],
             }
             state.saved.push(newplaylist)
-            toast.success("Playlist Created")
+            toast.success('Playlist Created')
         },
         [createPlaylist.rejected]: (state, action) => {
             state.error = action.error.message
@@ -78,7 +99,9 @@ export const saveSlice = createSlice({
         },
         [addToPlaylist.fulfilled]: (state, action) => {
             const { playlistId, video } = action.meta.arg
-            const findPlaylist = state.saved.find(item => item._id === playlistId)
+            const findPlaylist = state.saved.find(
+                (item) => item._id === playlistId
+            )
             findPlaylist.videos.push(video)
             toast.success(`Added to Playlist ${findPlaylist.name}`)
         },
@@ -92,11 +115,15 @@ export const saveSlice = createSlice({
         },
         [removeVideoFromSave.fulfilled]: (state, action) => {
             const { playlistId, _id } = action.meta.arg
-            const playlistIndex = state.saved.findIndex(save => save._id === playlistId)
-            const videoIndex = state.saved[playlistIndex].videos.findIndex(video => video._id === _id)
+            const playlistIndex = state.saved.findIndex(
+                (save) => save._id === playlistId
+            )
+            const videoIndex = state.saved[playlistIndex].videos.findIndex(
+                (video) => video._id === _id
+            )
             if (videoIndex > -1) {
                 state.saved[playlistIndex].videos.splice(videoIndex, 1)
-                toast.success("Removed video from the playlist")
+                toast.success('Removed video from the playlist')
             }
         },
         [removeVideoFromSave.rejected]: (state, action) => {
@@ -105,24 +132,26 @@ export const saveSlice = createSlice({
         },
         [removePlaylist.fulfilled]: (state, action) => {
             const { playlistId } = action.meta.arg
-            const playlistIndex = state.saved.findIndex(save => save._id === playlistId)
+            const playlistIndex = state.saved.findIndex(
+                (save) => save._id === playlistId
+            )
             if (playlistIndex > -1) {
                 state.saved.splice(playlistIndex, 1)
-                toast.success("Removed the playist")
+                toast.success('Removed the playist')
             }
         },
         [removePlaylist.rejected]: (state, action) => {
             state.error = action.error.message
             toast.error("Couldn't removed the playlist")
-        }
-    }
-
+        },
+    },
 })
 
 export const { saveButtonPressed } = saveSlice.actions
 
-export const selectSaved = state => state.saved
+export const selectSaved = (state) => state.saved
 
-export const selectSavedById = (state, saveId) => state.saved.saved.find(save => save._id === saveId)
+export const selectSavedById = (state, saveId) =>
+    state.saved.saved.find((save) => save._id === saveId)
 
 export default saveSlice.reducer

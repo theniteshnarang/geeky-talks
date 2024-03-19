@@ -24,8 +24,8 @@
         }
     }
     &__list {
-        min-width: 0;
-        max-width: 10rem;
+        // min-width: 0;
+        // max-width: 20rem;
         @include tablet {
             min-width: 23vw;
         }
@@ -33,7 +33,7 @@
             min-width: 34vw;
         }
         @include smphone {
-            min-width: 40vw;
+            min-width: 60vw;
         }
         &__item {
             border: none;
